@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 200" width="440" height="200">
+  <title>Mobile Logo System — Horizontal Lockup (Dark)</title>
+  <!--
+    Dark-mode variant: wordmark in warm white instead of charcoal.
+    Same geometry as horizontal-lockup.svg.
+  -->
+  <!-- Vesica symbol — copper -->
+  <path d="M 88 58 A 62 62 0 0 0 88 134 A 38 38 0 0 0 88 58 Z"
+        fill="#C67A52"/>
+  <!-- Wordmark — warm white for dark backgrounds -->
+  <text x="150" y="102"
+        font-family="Inter, -apple-system, 'Segoe UI', system-ui, sans-serif"
+        font-size="22"
+        font-weight="500"
+        letter-spacing="0.01em"
+        fill="#FAF6F2">mobile-logo-system</text>
+</svg>

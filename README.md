@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="brand/horizontal-lockup-dark.svg">
+    <img src="brand/horizontal-lockup.svg" width="320" alt="Mobile Logo System">
+  </picture>
+</p>
+
 # Mobile Logo System Skill
 
 **Current version: 2.2.0** | [Changelog](CHANGELOG.md) | [Migration guide](MIGRATION.md)
