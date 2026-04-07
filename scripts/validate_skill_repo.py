@@ -21,6 +21,7 @@ REQUIRED_FILES = [
     "references/example-requests.md",
     "references/example-responses.md",
     "references/production-resources.md",
+    "scripts/install_skill.py",
     "scripts/init_logo_system_package.py",
     "assets/package-template/reviews/project-style-snapshot.md",
     "assets/package-template/reviews/concept-scorecard.md",
@@ -34,7 +35,9 @@ REQUIRED_FILES = [
 ]
 
 MARKDOWN_GLOBS = [
+    "README.md",
     "SKILL.md",
+    ".claude/skills/*/SKILL.md",
     "references/*.md",
     "assets/package-template/**/*.md",
 ]

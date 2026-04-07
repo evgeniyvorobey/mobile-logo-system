@@ -70,9 +70,54 @@ mobile-logo-system/
 │       ├── reviews/
 │       └── selected/
 └── scripts/
+    ├── install_skill.py
     ├── init_logo_system_package.py
     └── validate_skill_repo.py
 ```
+
+## Quick Install From Terminal
+
+If you want to install directly from this repository via terminal, use:
+
+```bash
+python3 scripts/install_skill.py --codex
+```
+
+To install into a Claude project:
+
+```bash
+python3 scripts/install_skill.py --claude-project /path/to/your/project
+```
+
+To install into both at once:
+
+```bash
+python3 scripts/install_skill.py --codex --claude-project /path/to/your/project
+```
+
+Useful options:
+
+```bash
+python3 scripts/install_skill.py --codex --codex-mode copy
+python3 scripts/install_skill.py --claude-project /path/to/your/project --claude-mode link
+python3 scripts/install_skill.py --codex --claude-project /path/to/your/project --force
+```
+
+Fresh clone example:
+
+```bash
+git clone <REPO_URL>
+cd mobile-logo-system
+python3 scripts/install_skill.py --codex --claude-project /path/to/your/project
+```
+
+Defaults:
+
+- Codex install path: `${CODEX_HOME:-$HOME/.codex}/skills/mobile-logo-system`
+- Codex install mode: `link`
+- Claude install mode: `copy`
+- Claude wrapper path: `/path/to/project/.claude/skills/mobile-logo-system/SKILL.md`
+- Claude vendor path: `/path/to/project/.claude/vendor/mobile-logo-system`
 
 ## Install In Codex
 
@@ -91,6 +136,12 @@ mkdir -p "$CODEX_HOME/skills"
 cp -R /path/to/mobile-logo-system "$CODEX_HOME/skills/mobile-logo-system"
 ```
 
+Or use the installer:
+
+```bash
+python3 scripts/install_skill.py --codex
+```
+
 After that, Codex can use the canonical skill entrypoint:
 
 - [`SKILL.md`](SKILL.md)
@@ -105,6 +156,12 @@ If you already manage skills as repositories, keep this repo where you want it a
 
 - `SKILL.md` as the main skill entrypoint
 - `agents/openai.yaml` as the Codex UI metadata
+
+For a standalone copied install instead of a symlink:
+
+```bash
+python3 scripts/install_skill.py --codex --codex-mode copy
+```
 
 ### Typical Codex Invocation
 
@@ -136,15 +193,28 @@ Or with a task inline:
 
 ### Option 2: Manual Claude skill install
 
-Copy the Claude wrapper into your project's `.claude/skills` directory:
+Install into an existing Claude project with:
 
 ```bash
-mkdir -p .claude/skills/mobile-logo-system
-cp /path/to/mobile-logo-system/.claude/skills/mobile-logo-system/SKILL.md \
-  .claude/skills/mobile-logo-system/SKILL.md
+python3 scripts/install_skill.py --claude-project /path/to/your/project
 ```
 
-Keep the rest of the repository available alongside it, because the Claude wrapper forwards to the canonical root [`SKILL.md`](SKILL.md) and related references.
+This creates:
+
+- a Claude wrapper at `.claude/skills/mobile-logo-system/SKILL.md`
+- a vendor copy of the repo at `.claude/vendor/mobile-logo-system`
+
+If you prefer a symlinked vendor install instead of a copied one:
+
+```bash
+python3 scripts/install_skill.py --claude-project /path/to/your/project --claude-mode link
+```
+
+If you rerun the install over an existing setup, use:
+
+```bash
+python3 scripts/install_skill.py --claude-project /path/to/your/project --force
+```
 
 ## Production Package Scaffolding
 
@@ -178,6 +248,12 @@ Validate the repository structure and relative links with:
 
 ```bash
 python3 scripts/validate_skill_repo.py
+```
+
+Show installer help with:
+
+```bash
+python3 scripts/install_skill.py --help
 ```
 
 ## Suggested Usage Pattern
