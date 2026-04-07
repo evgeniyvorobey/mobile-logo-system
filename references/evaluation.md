@@ -4,44 +4,48 @@ Use this file to compare directions and reject weak concepts.
 
 ## Core Scoring Dimensions
 
-Score each direction from 1-5 on:
+Score each direction from 1-5 on these 11 dimensions.
 
-- Distinctiveness
-  Does it stand apart from the category?
+### Standard tier (7 dimensions — always scored)
 
-- Small-size legibility
-  Does it survive at 60px and 29px?
+1. Distinctiveness
+   Does it stand apart from the category?
 
-- Brand fit
-  Does it express the actual product and emotional job?
+2. Small-size legibility
+   Does it survive at 60px and 29px?
 
-- Platform readiness
-  Can it plausibly become iOS + Android adaptive + monochrome assets?
+3. Brand fit
+   Does it express the actual product and emotional job?
 
-- Premium feel
-  Does it feel crafted and deliberate without becoming noisy?
+4. Platform readiness
+   Can it plausibly become iOS + Android adaptive + monochrome assets?
 
-- Monochrome survival
-  Can it survive one-color conversion without losing identity?
+5. Premium feel
+   Does it feel crafted and deliberate without becoming noisy?
 
-- Wordmark compatibility
-  Can it pair cleanly with a wordmark without fighting it?
+6. Monochrome survival
+   Can it survive one-color conversion without losing identity?
 
-- Geometric precision
-  Is the mark built on a construction grid? Are proportions intentional? Are optical corrections applied (overshoot, visual center, stroke compensation)?
-  See [geometric-craft.md](geometric-craft.md) for the full framework.
+7. Wordmark compatibility
+   Can it pair cleanly with a wordmark without fighting it?
 
-- Color craft
-  Are color roles assigned (primary, secondary, accent)? Does the palette survive CVD simulation and grayscale conversion? Are gradient fallbacks defined?
-  See [color-system.md](color-system.md) for the full framework.
+### Hi-end tier (4 additional dimensions)
 
-- Context survival
-  Does the mark work on a real home screen among competitors? Does it hold up in store listings, notification bar, settings, and splash screen?
-  See [context-testing.md](context-testing.md) for mandatory mockup contexts.
+8. Geometric precision
+   Is the mark built on a construction grid? Are proportions intentional? Are optical corrections applied (overshoot, visual center, stroke compensation)?
+   See [geometric-craft.md](geometric-craft.md) for the full framework.
 
-- Longevity
-  Is the mark's identity structural (shape, proportion, negative space) or stylistic (gradient trend, effect fashion)? Does it pass the style-agnostic silhouette test? Would it look dated in 3 years?
-  See [premium-craft.md](premium-craft.md) for the full longevity framework.
+9. Color craft
+   Are color roles assigned (primary, secondary, accent)? Does the palette survive CVD simulation and grayscale conversion? Are gradient fallbacks defined?
+   See [color-system.md](color-system.md) for the full framework.
+
+10. Context survival
+    Does the mark work on a real home screen among competitors? Does it hold up in store listings, notification bar, settings, and splash screen?
+    See [context-testing.md](context-testing.md) for mandatory mockup contexts.
+
+11. Longevity
+    Is the mark's identity structural (shape, proportion, negative space) or stylistic (gradient trend, effect fashion)? Does it pass the style-agnostic silhouette test? Would it look dated in 3 years?
+    See [premium-craft.md](premium-craft.md) for the full longevity framework.
 
 ## Reduction Tests
 
@@ -114,10 +118,15 @@ Reject or rework if any of these are true:
 
 ## Suggested Decision Matrix
 
-Use a full table:
+Standard tier (7 columns):
 
-| Direction | Distinctive | Small size | Brand fit | Premium | Monochrome | Geometric | Color | Context | Longevity | Total |
-|-----------|-------------|------------|-----------|---------|------------|-----------|-------|---------|-----------|-------|
+| Direction | Distinctive | Small size | Brand fit | Platform | Premium | Monochrome | Wordmark | Total |
+|-----------|-------------|------------|-----------|----------|---------|------------|----------|-------|
+
+Hi-end tier (all 11 columns):
+
+| Direction | Distinctive | Small size | Brand fit | Platform | Premium | Monochrome | Wordmark | Geometric | Color | Context | Longevity | Total |
+|-----------|-------------|------------|-----------|----------|---------|------------|----------|-----------|-------|---------|-----------|-------|
 
 Then add a short note:
 - strongest reason to advance

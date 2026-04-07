@@ -6,15 +6,25 @@ Date: {{DATE}}
 
 ## Directions Compared
 
-| Direction | Type | Distinctive | Small Size | Brand Fit | Monochrome | Platform | Geometric | Color | Context | Longevity | Total | Advance? |
-|-----------|------|-------------|------------|-----------|------------|----------|-----------|-------|---------|-----------|-------|----------|
-| Direction 1 | evolutionary / adjacent / reset |  |  |  |  |  |  |  |  |  |  |  |
-| Direction 2 | evolutionary / adjacent / reset |  |  |  |  |  |  |  |  |  |  |  |
-| Direction 3 | evolutionary / adjacent / reset |  |  |  |  |  |  |  |  |  |  |  |
+Standard tier (7 dimensions):
 
-Scoring guide: use 1-5 or a clear equivalent.
+| Direction | Type | Distinctive | Small Size | Brand Fit | Platform | Premium | Monochrome | Wordmark | Total | Advance? |
+|-----------|------|-------------|------------|-----------|----------|---------|------------|----------|-------|----------|
+| Direction 1 | evolutionary / adjacent / reset |  |  |  |  |  |  |  |  |  |
+| Direction 2 | evolutionary / adjacent / reset |  |  |  |  |  |  |  |  |  |
+| Direction 3 | evolutionary / adjacent / reset |  |  |  |  |  |  |  |  |  |
 
-New dimensions:
+Hi-end tier (all 11 dimensions):
+
+| Direction | Type | Distinctive | Small Size | Brand Fit | Platform | Premium | Monochrome | Wordmark | Geometric | Color | Context | Longevity | Total | Advance? |
+|-----------|------|-------------|------------|-----------|----------|---------|------------|----------|-----------|-------|---------|-----------|-------|----------|
+| Direction 1 | evolutionary / adjacent / reset |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Direction 2 | evolutionary / adjacent / reset |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Direction 3 | evolutionary / adjacent / reset |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
+Scoring guide: use 1-5 or a clear equivalent. Use the table matching the quality tier for this project.
+
+Hi-end dimensions:
 - Geometric: Is the mark built on a construction grid? Are optical corrections applied?
 - Color: Are color roles assigned? Does the palette survive grayscale and CVD?
 - Context: Does the mark work on a real home screen among competitors?

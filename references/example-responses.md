@@ -70,12 +70,12 @@ Recommendations:
   Risk: can drift into finance or utility if the proportions become too severe
   Longevity: structural — container + core is archetypal, not trend-dependent.
 
-Evaluation matrix:
-| Direction    | Distinctive | Small size | Brand fit | Premium | Mono | Geometric | Color | Context | Longevity | Total |
-|--------------|-------------|------------|-----------|---------|------|-----------|-------|---------|-----------|-------|
-| Quiet Halo   | 3           | 4          | 5         | 4       | 4    | 4         | 4     | 3       | 4         | 35    |
-| Folded Light | 5           | 4          | 4         | 4       | 4    | 5         | 5     | 4       | 5         | 40    |
-| Lantern Mark | 4           | 4          | 4         | 3       | 5    | 4         | 4     | 4       | 4         | 36    |
+Evaluation matrix (hi-end tier, all 11 dimensions):
+| Direction    | Distinctive | Small size | Brand fit | Platform | Premium | Mono | Wordmark | Geometric | Color | Context | Longevity | Total |
+|--------------|-------------|------------|-----------|----------|---------|------|----------|-----------|-------|---------|-----------|-------|
+| Quiet Halo   | 3           | 4          | 5         | 4        | 4       | 4    | 4        | 4         | 4     | 3       | 4         | 43    |
+| Folded Light | 5           | 4          | 4         | 4        | 4       | 4    | 4        | 5         | 5     | 4       | 5         | 48    |
+| Lantern Mark | 4           | 4          | 4         | 5        | 3       | 5    | 3        | 4         | 4     | 4       | 4         | 44    |
 
 - Strongest first move: Direction 2 (Folded Light)
   Why: highest total score. It improves distinctiveness without forcing a full stylistic reset, has the strongest geometric construction, and has the best longevity — the identity lives in shape, not in rendering.

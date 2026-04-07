@@ -235,7 +235,8 @@ See the full prompt library: [`references/prompt-library.md`](references/prompt-
 
 - **Python**: 3.9+
 - **Platforms**: Codex (OpenAI), Claude (Anthropic)
-- **OS**: macOS, Linux, Windows (for scripts)
+- **OS**: macOS, Linux. Windows works but the default symlink install mode (`--codex-mode link`) may require Developer Mode or elevated permissions — use `--codex-mode copy` on Windows to avoid this.
+- **CI**: tested on Ubuntu with Python 3.9 and 3.12
 - **License**: [MIT](LICENSE)
 
 ## Canonical Files
