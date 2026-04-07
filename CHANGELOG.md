@@ -9,6 +9,20 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **minor** — new reference files, prompts, or capabilities without breaking existing packages
 - **patch** — typos, wording fixes, link corrections
 
+## [2.1.1] - 2026-04-07
+
+### Fixed
+
+- Evaluation matrix consistency: added missing Platform and Wordmark columns to
+  decision matrix in `evaluation.md`, `concept-scorecard.md`, and
+  `example-responses.md`. All three files now match the full 11-dimension list.
+- Scorecard template now provides both standard (7-column) and hi-end (11-column)
+  table variants.
+- `evaluation.md` dimensions section split into standard tier (7) and hi-end tier
+  (4 additional) with numbered list for clarity.
+- Windows compatibility note in README: symlink install may require Developer Mode,
+  recommend `--codex-mode copy` on Windows.
+
 ## [2.1.0] - 2026-04-07
 
 ### Added
