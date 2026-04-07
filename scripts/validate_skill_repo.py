@@ -23,6 +23,7 @@ REQUIRED_FILES = [
     "references/production-resources.md",
     "scripts/install_skill.py",
     "scripts/init_logo_system_package.py",
+    "scripts/smoke_test_installer.py",
     "assets/package-template/reviews/project-style-snapshot.md",
     "assets/package-template/reviews/concept-scorecard.md",
     "assets/package-template/reviews/reduction-checks.md",
@@ -92,10 +93,29 @@ def validate_relative_links() -> None:
         fail("Broken relative links found:\n" + "\n".join(broken_links))
 
 
+def validate_smoke_test_script() -> None:
+    if not installer_smoke_test_expectations():
+        fail("Installer smoke test expectations are not satisfied")
+
+
+def installer_smoke_test_expectations() -> bool:
+    installer_path = ROOT / "scripts" / "smoke_test_installer.py"
+    text = installer_path.read_text(encoding="utf-8")
+    required_markers = [
+        "--codex",
+        "--claude-project",
+        "not a directory",
+        "vendor_root / \".claude\"",
+        "vendor_root_link / \".claude\"",
+    ]
+    return all(marker in text for marker in required_markers)
+
+
 def main() -> int:
     validate_required_files()
     validate_skill_frontmatter()
     validate_relative_links()
+    validate_smoke_test_script()
     print("[OK] Skill repository structure and relative links are valid.")
     return 0
 

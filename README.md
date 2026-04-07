@@ -126,14 +126,14 @@ Defaults:
 Copy this repository to:
 
 ```text
-$CODEX_HOME/skills/mobile-logo-system
+${CODEX_HOME:-$HOME/.codex}/skills/mobile-logo-system
 ```
 
 Example:
 
 ```bash
-mkdir -p "$CODEX_HOME/skills"
-cp -R /path/to/mobile-logo-system "$CODEX_HOME/skills/mobile-logo-system"
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+cp -R /path/to/mobile-logo-system "${CODEX_HOME:-$HOME/.codex}/skills/mobile-logo-system"
 ```
 
 Or use the installer:
@@ -248,6 +248,12 @@ Validate the repository structure and relative links with:
 
 ```bash
 python3 scripts/validate_skill_repo.py
+```
+
+Run installer smoke tests with:
+
+```bash
+python3 scripts/smoke_test_installer.py
 ```
 
 Show installer help with:
