@@ -64,6 +64,23 @@ Choose exactly one primary mode:
 - asset packaging
 - export/readiness audit
 
+#### Quality tier
+
+Determine the quality tier for this task:
+
+**Standard** — solid, production-aware work. Covers concept territories, 7-dimension evaluation (Distinctive, Small size, Brand fit, Premium, Monochrome, Platform, Wordmark), reduction and monochrome checks, basic platform validation. Suitable for most requests.
+
+**Hi-end** — full craft pipeline. Adds geometric construction pass, color system audit, typography craft, premium craft, comprehensive context testing, longevity assessment, and motion consideration. Uses the full 11-dimension evaluation matrix.
+
+Default to **standard** unless any of these triggers are present:
+- the user explicitly requests hi-end, premium, production-ready, or craft-level quality
+- the brand is positioned as premium, luxury, or craft-sensitive
+- the product has a large established user base
+- store optimization or competitive differentiation is a stated priority
+- the user references specific craft steps (geometric grid, color accessibility, typography craft)
+
+The tier can be upgraded mid-workflow if the work evolves. State the chosen tier in the first response.
+
 ### 2. Audit the current project before ideation
 
 Read [references/project-audit.md](references/project-audit.md) first whenever local files, screenshots, UI, icons, brand assets, or prior explorations are available.
@@ -176,6 +193,8 @@ Avoid random variation in:
 
 ### 9. Run a craft pass before finalizing
 
+> **Hi-end tier only.** Standard tier skips this step — move directly to evaluation.
+
 After refinement and before specialized rounds, run a dedicated craft pass.
 
 Read [references/geometric-craft.md](references/geometric-craft.md), [references/color-system.md](references/color-system.md), [references/typography-craft.md](references/typography-craft.md), and [references/premium-craft.md](references/premium-craft.md).
@@ -211,6 +230,8 @@ Reject concepts that:
 
 ### 11. Validate in real context
 
+> **Full protocol is hi-end tier.** Standard tier: verify at 60px and 29px, test on one home screen (light and dark), confirm monochrome survival. Skip competitor row and full store listing mockups.
+
 Read [references/context-testing.md](references/context-testing.md) before declaring any direction production-ready.
 
 Every mark that advances past concept selection must be tested in:
@@ -241,7 +262,7 @@ Questions are warranted when the answer could materially change the direction, s
 
 If those answers are unavailable, proceed with labeled assumptions rather than blocking.
 
-### 13. Consider motion (optional)
+### 13. Consider motion (optional, hi-end recommended)
 
 When the brand can benefit from animation, consider how the mark could animate:
 - app launch transition (icon to splash screen)
@@ -379,7 +400,7 @@ Do not:
 - ask broad, low-signal questions when a labeled assumption would be enough
 - present concept geometry without stating the construction method
 - present colors without assigning structural roles and defining monochrome fallbacks
-- skip the craft pass when the work is expected to be hi-end quality
+- skip the craft pass on hi-end tier work
 - use gradients, glow, or effects to rescue a weak silhouette
 - treat negative space as leftover rather than designed
 - present a wordmark without justifying type classification and pairing logic
@@ -387,20 +408,28 @@ Do not:
 
 ## Success Criteria
 
-This skill succeeds when the output is:
+### Both tiers
+
+The output must be:
 - brand-correct
 - mobile-correct
 - project-aligned when existing brand context is present
 - research-backed when current guidance matters
-- reduction-safe
+- reduction-safe (survives 60px and 29px)
 - platform-aware
-- geometrically constructed (built on a grid, not freehand)
-- color-rationalized (roles assigned, accessibility checked, fallbacks defined)
-- context-validated (tested on real home screens and store listings)
-- typography-crafted (pairing justified, kerned, lockups measured)
-- premium-verified (negative space deliberate, silhouette test passed, longevity assessed)
 - explainable
 - package-ready
+
+### Hi-end tier (additional)
+
+The output must also be:
+- geometrically constructed (built on a grid, not freehand)
+- color-rationalized (roles assigned, accessibility checked, fallbacks defined)
+- context-validated (tested on real home screens and store listings, competitor row passed)
+- typography-crafted (pairing justified, kerned, lockups measured)
+- premium-verified (negative space deliberate, silhouette test passed, longevity assessed)
+
+### Failure signals
 
 If the work looks stylish but would fail at 60px or in Android monochrome, it failed.
 If the work looks good in isolation but disappears on a real home screen, it failed.

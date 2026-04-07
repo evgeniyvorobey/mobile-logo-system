@@ -53,6 +53,9 @@ MARKDOWN_GLOBS = [
 
 LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 FRONTMATTER_RE = re.compile(r"^---\n(?P<body>.*?)\n---\n", re.DOTALL)
+VERSION_RE = re.compile(r"^version:\s*(.+)$", re.MULTILINE)
+README_VERSION_RE = re.compile(r"\*\*Current version:\s*(.+?)\*\*")
+CHANGELOG_VERSION_RE = re.compile(r"^## \[(.+?)\]", re.MULTILINE)
 
 
 def fail(message: str) -> None:
@@ -103,6 +106,34 @@ def validate_relative_links() -> None:
         fail("Broken relative links found:\n" + "\n".join(broken_links))
 
 
+def validate_version_consistency() -> None:
+    skill_text = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+    match = VERSION_RE.search(skill_text)
+    if not match:
+        fail("SKILL.md frontmatter does not contain a version field")
+    canonical = match.group(1).strip()
+
+    readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
+    rm = README_VERSION_RE.search(readme_text)
+    if not rm:
+        fail("README.md does not contain a **Current version: X.Y.Z** badge")
+    if rm.group(1).strip() != canonical:
+        fail(
+            f"Version mismatch: SKILL.md says {canonical}, "
+            f"README.md says {rm.group(1).strip()}"
+        )
+
+    changelog_text = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
+    cm = CHANGELOG_VERSION_RE.search(changelog_text)
+    if not cm:
+        fail("CHANGELOG.md does not contain a ## [X.Y.Z] version header")
+    if cm.group(1).strip() != canonical:
+        fail(
+            f"Version mismatch: SKILL.md says {canonical}, "
+            f"CHANGELOG.md latest entry says {cm.group(1).strip()}"
+        )
+
+
 def validate_smoke_test_script() -> None:
     if not installer_smoke_test_expectations():
         fail("Installer smoke test expectations are not satisfied")
@@ -125,6 +156,7 @@ def main() -> int:
     validate_required_files()
     validate_skill_frontmatter()
     validate_relative_links()
+    validate_version_consistency()
     validate_smoke_test_script()
     print("[OK] Skill repository structure and relative links are valid.")
     return 0

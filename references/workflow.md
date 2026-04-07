@@ -2,6 +2,15 @@
 
 This is the full reusable workflow for mobile logo system work.
 
+## Quality Tiers
+
+This workflow supports two tiers:
+
+- **Standard** — Phases 1-6, 7, 8 (optional), 9, 11. Skips craft pass, full context testing, and motion. Uses 7-dimension evaluation.
+- **Hi-end** — All phases including 7.5 (craft pass), full context testing in Phase 11, and Phase 10 (motion). Uses 11-dimension evaluation.
+
+Default to standard. See SKILL.md step 1 for tier selection triggers.
+
 ## Phase 1. Discovery
 
 Collect:
@@ -104,7 +113,9 @@ Typical refinement loop:
 
 Refinement should be iterative, not a full restart.
 
-## Phase 7.5. Craft Pass
+## Phase 7.5. Craft Pass (Hi-end Only)
+
+> Standard tier skips this phase entirely. Move from Phase 7 to Phase 8.
 
 After the concept is refined but before specialized rounds, run a dedicated craft pass.
 
@@ -198,7 +209,9 @@ At minimum, package:
 - export checklist
 - unresolved risks
 
-## Phase 10. Motion Consideration
+## Phase 10. Motion Consideration (Hi-end Only)
+
+> Standard tier skips this phase. Optional even for hi-end but recommended for premium brands.
 
 When the brand can benefit from animation, consider how the mark could animate:
 - app launch transition (icon to splash screen)
@@ -224,9 +237,14 @@ Before concluding:
 - re-check monochrome viability
 - re-check context placement (home screen, store listing)
 - confirm the winner still matches the original brand job
-- verify craft pass results are reflected in the final mark
 - note what remains unverified
 
+### Hi-end additional checks
+- verify craft pass results are reflected in the final mark
+- confirm competitor row comparison passed
+- verify geometric construction is documented
+- confirm color accessibility checks passed
+
 If the design only works when enlarged, glossy, or explained, it is not ready.
-If the design has not passed context testing, it is not ready.
-If the design has craft issues flagged but uncorrected, it is not ready.
+If the design has not passed context testing (at tier-appropriate depth), it is not ready.
+If the design has craft issues flagged but uncorrected (hi-end tier), it is not ready.
