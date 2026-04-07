@@ -8,7 +8,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED_FILES = [
+    "README.md",
     "SKILL.md",
+    ".claude/skills/mobile-logo-system/SKILL.md",
     "agents/openai.yaml",
     "references/sources.md",
     "references/live-research.md",
