@@ -1,0 +1,206 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import argparse
+import os
+from pathlib import Path
+import shutil
+import sys
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SKILL_NAME = "mobile-logo-system"
+IGNORE_PATTERNS = shutil.ignore_patterns(".git", "__pycache__", ".DS_Store")
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Install the mobile-logo-system skill into Codex and/or a Claude project."
+    )
+    parser.add_argument(
+        "--codex",
+        action="store_true",
+        help="Install the skill into the Codex skills directory.",
+    )
+    parser.add_argument(
+        "--codex-home",
+        help="Override CODEX_HOME for Codex installation. Defaults to $CODEX_HOME or ~/.codex.",
+    )
+    parser.add_argument(
+        "--codex-mode",
+        choices=("link", "copy"),
+        default="link",
+        help="How to install into Codex: symlink to this repo or copy it. Default: link.",
+    )
+    parser.add_argument(
+        "--claude-project",
+        help="Install the skill into the given Claude project directory.",
+    )
+    parser.add_argument(
+        "--claude-mode",
+        choices=("link", "copy"),
+        default="copy",
+        help="How to install into the Claude project vendor directory. Default: copy.",
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Overwrite an existing install target.",
+    )
+    args = parser.parse_args()
+    if not args.codex and not args.claude_project:
+        parser.error("Choose at least one install target: --codex and/or --claude-project.")
+    return args
+
+
+def resolve_codex_home(explicit: str | None) -> Path:
+    if explicit:
+        return Path(explicit).expanduser().resolve()
+    code_home = os.environ.get("CODEX_HOME")
+    if code_home:
+        return Path(code_home).expanduser().resolve()
+    return Path.home() / ".codex"
+
+
+def ensure_parent(path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+
+def remove_path(path: Path) -> None:
+    if not path.exists() and not path.is_symlink():
+        return
+    if path.is_symlink() or path.is_file():
+        path.unlink()
+        return
+    shutil.rmtree(path)
+
+
+def ensure_clean_target(path: Path, force: bool) -> None:
+    if path.exists() or path.is_symlink():
+        if not force:
+            raise SystemExit(
+                f"Target already exists: {path}\nUse --force to overwrite it."
+            )
+        remove_path(path)
+
+
+def install_tree(source: Path, dest: Path, mode: str) -> None:
+    ensure_clean_target(dest, force=True)
+    ensure_parent(dest)
+    if mode == "link":
+        dest.symlink_to(source, target_is_directory=True)
+        return
+    shutil.copytree(source, dest, ignore=IGNORE_PATTERNS)
+
+
+def install_codex(codex_home: Path, mode: str, force: bool) -> Path:
+    dest = codex_home / "skills" / SKILL_NAME
+    if dest.exists() or dest.is_symlink():
+        if not force:
+            raise SystemExit(
+                f"Codex skill target already exists: {dest}\nUse --force to overwrite it."
+            )
+        remove_path(dest)
+    ensure_parent(dest)
+    if mode == "link":
+        dest.symlink_to(ROOT, target_is_directory=True)
+    else:
+        shutil.copytree(ROOT, dest, ignore=IGNORE_PATTERNS)
+    return dest
+
+
+def render_claude_wrapper(repo_root_expr: str) -> str:
+    return f"""---
+name: {SKILL_NAME}
+description: Create, review, refine, and package mobile-first logo systems for iOS and Android. Use when you want a project-first app icon and logo workflow directly in Claude with /{SKILL_NAME}.
+argument-hint: "[task / brand / icon request]"
+disable-model-invocation: true
+---
+
+# Mobile Logo System
+
+Use the repository's canonical mobile logo system skill for this request.
+
+When invoked:
+
+1. Read `{repo_root_expr}/SKILL.md` first. That file is the canonical skill entrypoint and contains the core workflow.
+2. Read supporting files only as needed:
+   - `{repo_root_expr}/references/project-audit.md`
+   - `{repo_root_expr}/references/live-research.md`
+   - `{repo_root_expr}/references/sources.md`
+   - `{repo_root_expr}/references/concept-quality.md`
+   - `{repo_root_expr}/references/evaluation.md`
+   - `{repo_root_expr}/references/package-spec.md`
+   - `{repo_root_expr}/references/production-resources.md`
+   - `{repo_root_expr}/references/example-responses.md`
+3. If the task requires real handoff files, use `{repo_root_expr}/scripts/init_logo_system_package.py`.
+4. Apply the canonical workflow to the current request.
+
+Invocation payload:
+
+$ARGUMENTS
+
+If no arguments were passed after `/{SKILL_NAME}`, use the most recent user request from the conversation as the task input.
+
+Return the result as a normal skill response, following the structure defined by the canonical skill.
+"""
+
+
+def install_claude(project_root: Path, mode: str, force: bool) -> tuple[Path, Path]:
+    claude_root = project_root / ".claude"
+    vendor_dest = claude_root / "vendor" / SKILL_NAME
+    wrapper_dest = claude_root / "skills" / SKILL_NAME / "SKILL.md"
+
+    if vendor_dest.exists() or vendor_dest.is_symlink():
+        if not force:
+            raise SystemExit(
+                f"Claude vendor target already exists: {vendor_dest}\nUse --force to overwrite it."
+            )
+        remove_path(vendor_dest)
+
+    if wrapper_dest.exists():
+        if not force:
+            raise SystemExit(
+                f"Claude wrapper already exists: {wrapper_dest}\nUse --force to overwrite it."
+            )
+        remove_path(wrapper_dest)
+
+    ensure_parent(vendor_dest)
+    ensure_parent(wrapper_dest)
+
+    if mode == "link":
+        vendor_dest.symlink_to(ROOT, target_is_directory=True)
+    else:
+        shutil.copytree(ROOT, vendor_dest, ignore=IGNORE_PATTERNS)
+
+    repo_root_expr = "${CLAUDE_SKILL_DIR}/../../vendor/mobile-logo-system"
+    wrapper_dest.write_text(render_claude_wrapper(repo_root_expr), encoding="utf-8")
+    return vendor_dest, wrapper_dest
+
+
+def main() -> int:
+    args = parse_args()
+
+    if args.codex:
+        codex_home = resolve_codex_home(args.codex_home)
+        codex_dest = install_codex(codex_home, mode=args.codex_mode, force=args.force)
+        print(f"[OK] Installed Codex skill to {codex_dest}")
+
+    if args.claude_project:
+        project_root = Path(args.claude_project).expanduser().resolve()
+        if not project_root.exists():
+            print(f"Claude project directory does not exist: {project_root}", file=sys.stderr)
+            return 1
+        vendor_dest, wrapper_dest = install_claude(
+            project_root,
+            mode=args.claude_mode,
+            force=args.force,
+        )
+        print(f"[OK] Installed Claude vendor copy to {vendor_dest}")
+        print(f"[OK] Installed Claude skill wrapper to {wrapper_dest}")
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
