@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>Mobile Logo System — Primary Symbol</title>
+  <!--
+    Direction: Construction Vesica
+    Circle 1: center (85, 96), r=38
+    Circle 2: center (137, 96), r=62 (r1 × phi)
+    Vesica: asymmetric intersection — right arc more curved, left arc flatter
+    Aspect ratio: ~1:1.58 (near golden ratio)
+    Optical center: y=96 (4% up from geometric center)
+  -->
+  <path d="M 88 58 A 62 62 0 0 0 88 134 A 38 38 0 0 0 88 58 Z"
+        fill="#C67A52"/>
+</svg>

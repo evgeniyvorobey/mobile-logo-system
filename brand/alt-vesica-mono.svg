@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>Mobile Logo System — Construction Vesica Monochrome</title>
+  <!--
+    Same vesica geometry, no construction circles.
+    Identity carried by asymmetric pointed form alone.
+    For use at small sizes, monochrome contexts, favicons.
+  -->
+  <path d="M 88 58 A 62 62 0 0 0 88 134 A 38 38 0 0 0 88 58 Z"
+        fill="#2C2C34"/>
+</svg>

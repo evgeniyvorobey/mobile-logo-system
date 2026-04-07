@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="64" height="64">
+  <title>Mobile Logo System — Small Icon</title>
+  <!--
+    Wider vesica for small render sizes (16-64px).
+    Circles brought closer: distance 40 vs 52 in primary.
+    Circle 1: center (92, 96), r=38
+    Circle 2: center (132, 96), r=62
+    Vesica width ~60 (vs ~48 in primary) for better readability.
+  -->
+  <path d="M 82 59 A 62 62 0 0 0 82 133 A 38 38 0 0 0 82 59 Z"
+        fill="#C67A52"/>
+</svg>

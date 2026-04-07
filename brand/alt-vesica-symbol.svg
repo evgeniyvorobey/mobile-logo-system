@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>Mobile Logo System — Construction Vesica (Alternative Direction)</title>
+  <!--
+    Direction: Construction Vesica
+    Metaphor: the mark is born from the intersection of two construction circles
+    Circle 1: center (85, 96), r=38
+    Circle 2: center (137, 96), r=62 (r1 × phi)
+    Vesica: asymmetric intersection (right arc more curved, left arc flatter)
+    Aspect ratio of vesica: ~1:1.58 (near golden ratio)
+    Optical center: circles at y=96 (4% up from geometric center)
+  -->
+
+  <!-- Construction circle 1 — small, left -->
+  <circle cx="85" cy="96" r="38"
+          fill="none" stroke="#C67A52" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.25"/>
+
+  <!-- Construction circle 2 — large, right (r × phi) -->
+  <circle cx="137" cy="96" r="62"
+          fill="none" stroke="#C67A52" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.25"/>
+
+  <!-- Construction points — intersection markers -->
+  <circle cx="88" cy="58" r="2.5" fill="#C67A52" opacity="0.3"/>
+  <circle cx="88" cy="134" r="2.5" fill="#C67A52" opacity="0.3"/>
+
+  <!-- Vesica (intersection) — THE MARK -->
+  <path d="M 88 58 A 62 62 0 0 0 88 134 A 38 38 0 0 0 88 58 Z"
+        fill="#C67A52"/>
+</svg>

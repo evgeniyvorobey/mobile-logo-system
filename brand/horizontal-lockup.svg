@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 200" width="440" height="200">
+  <title>Mobile Logo System — Horizontal Lockup</title>
+  <!--
+    Vesica symbol + wordmark "mobile-logo-system"
+    Symbol: same geometry as primary-symbol.svg
+    Wordmark: geometric sans, medium weight, lowercase
+    Gap: ~80% of cap-height between symbol and text
+    Cap-height: ~30% of symbol height (symbol-dominant)
+  -->
+  <!-- Vesica symbol — copper -->
+  <path d="M 88 58 A 62 62 0 0 0 88 134 A 38 38 0 0 0 88 58 Z"
+        fill="#C67A52"/>
+  <!-- Wordmark -->
+  <text x="150" y="102"
+        font-family="Inter, -apple-system, 'Segoe UI', system-ui, sans-serif"
+        font-size="22"
+        font-weight="500"
+        letter-spacing="0.01em"
+        fill="#2C2C34">mobile-logo-system</text>
+</svg>

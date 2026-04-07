@@ -9,6 +9,14 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **minor** — new reference files, prompts, or capabilities without breaking existing packages
 - **patch** — typos, wording fixes, link corrections, documentation alignment
 
+## [2.2.0] - 2026-04-07
+
+### Added
+
+- Brand identity: Construction Vesica direction — asymmetric vesica piscis from two phi-related circles.
+- `brand/` directory with full deliverable set: primary symbol, monochrome symbol, small icon, horizontal lockup, construction reference variants.
+- `brand/spec.md` — construction logic, color roles, typography, usage guidance for the vesica mark.
+
 ## [2.1.2] - 2026-04-07
 
 ### Fixed
