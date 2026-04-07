@@ -9,6 +9,35 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **minor** — new reference files, prompts, or capabilities without breaking existing packages
 - **patch** — typos, wording fixes, link corrections
 
+## [2.1.0] - 2026-04-07
+
+### Added
+
+- Quality tier system: standard (default) and hi-end paths. Standard covers
+  concept territories, 7-dimension evaluation, reduction and monochrome checks.
+  Hi-end adds craft pass, full context testing, motion consideration, and
+  11-dimension evaluation. Tier is selected automatically based on triggers
+  (premium positioning, large user base, explicit request) and can be upgraded
+  mid-workflow.
+- Version consistency validation in `validate_skill_repo.py` — cross-checks
+  version across SKILL.md, README.md, and CHANGELOG.md.
+- GitHub Actions CI workflow (`.github/workflows/ci.yml`) — runs repo validation
+  and installer smoke tests on push/PR to main, across Python 3.9 and 3.12.
+- MIT LICENSE file.
+- Compatibility section in README (Python 3.9+, Codex/Claude, macOS/Linux/Windows).
+
+### Changed
+
+- SKILL.md: craft pass (step 9), full context validation (step 11), and motion
+  (step 13) are now gated behind hi-end tier. Success criteria split into
+  "both tiers" and "hi-end additional". Hard constraint updated to reference
+  tier explicitly.
+- `references/workflow.md`: quality tier summary added, Phase 7.5 and Phase 10
+  marked as hi-end only, Phase 11 final review split into base and hi-end checks.
+- README restructured: added table of contents, consolidated duplicate install
+  sections (Quick Install + Codex + Claude merged into single Installation section),
+  reduced from ~340 to ~250 lines.
+
 ## [2.0.0] - 2026-04-07
 
 ### Breaking Changes
