@@ -11,6 +11,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 SKILL_NAME = "mobile-logo-system"
 IGNORE_PATTERNS = shutil.ignore_patterns(".git", "__pycache__", ".DS_Store")
+CLAUDE_VENDOR_IGNORE_NAMES = {".git", ".claude", "__pycache__", ".DS_Store"}
 
 
 def parse_args() -> argparse.Namespace:
@@ -75,24 +76,6 @@ def remove_path(path: Path) -> None:
     shutil.rmtree(path)
 
 
-def ensure_clean_target(path: Path, force: bool) -> None:
-    if path.exists() or path.is_symlink():
-        if not force:
-            raise SystemExit(
-                f"Target already exists: {path}\nUse --force to overwrite it."
-            )
-        remove_path(path)
-
-
-def install_tree(source: Path, dest: Path, mode: str) -> None:
-    ensure_clean_target(dest, force=True)
-    ensure_parent(dest)
-    if mode == "link":
-        dest.symlink_to(source, target_is_directory=True)
-        return
-    shutil.copytree(source, dest, ignore=IGNORE_PATTERNS)
-
-
 def install_codex(codex_home: Path, mode: str, force: bool) -> Path:
     dest = codex_home / "skills" / SKILL_NAME
     if dest.exists() or dest.is_symlink():
@@ -107,6 +90,21 @@ def install_codex(codex_home: Path, mode: str, force: bool) -> Path:
     else:
         shutil.copytree(ROOT, dest, ignore=IGNORE_PATTERNS)
     return dest
+
+
+def install_claude_vendor(vendor_dest: Path, mode: str) -> None:
+    vendor_dest.mkdir(parents=True, exist_ok=True)
+    for child in ROOT.iterdir():
+        if child.name in CLAUDE_VENDOR_IGNORE_NAMES:
+            continue
+        dest_child = vendor_dest / child.name
+        if mode == "link":
+            dest_child.symlink_to(child, target_is_directory=child.is_dir())
+            continue
+        if child.is_dir():
+            shutil.copytree(child, dest_child, ignore=IGNORE_PATTERNS)
+        else:
+            shutil.copy2(child, dest_child)
 
 
 def render_claude_wrapper(repo_root_expr: str) -> str:
@@ -168,10 +166,7 @@ def install_claude(project_root: Path, mode: str, force: bool) -> tuple[Path, Pa
     ensure_parent(vendor_dest)
     ensure_parent(wrapper_dest)
 
-    if mode == "link":
-        vendor_dest.symlink_to(ROOT, target_is_directory=True)
-    else:
-        shutil.copytree(ROOT, vendor_dest, ignore=IGNORE_PATTERNS)
+    install_claude_vendor(vendor_dest, mode=mode)
 
     repo_root_expr = "${CLAUDE_SKILL_DIR}/../../vendor/mobile-logo-system"
     wrapper_dest.write_text(render_claude_wrapper(repo_root_expr), encoding="utf-8")
@@ -191,12 +186,18 @@ def main() -> int:
         if not project_root.exists():
             print(f"Claude project directory does not exist: {project_root}", file=sys.stderr)
             return 1
+        if not project_root.is_dir():
+            print(
+                f"Claude project path is not a directory: {project_root}",
+                file=sys.stderr,
+            )
+            return 1
         vendor_dest, wrapper_dest = install_claude(
             project_root,
             mode=args.claude_mode,
             force=args.force,
         )
-        print(f"[OK] Installed Claude vendor copy to {vendor_dest}")
+        print(f"[OK] Installed Claude vendor files to {vendor_dest}")
         print(f"[OK] Installed Claude skill wrapper to {wrapper_dest}")
 
     return 0
