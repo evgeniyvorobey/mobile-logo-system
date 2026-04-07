@@ -4,11 +4,22 @@ from __future__ import annotations
 import argparse
 from datetime import date
 from pathlib import Path
+import re
 import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE_ROOT = ROOT / "assets" / "package-template"
+_VERSION_RE = re.compile(r"^version:\s*(.+)$", re.MULTILINE)
+
+
+def read_skill_version() -> str:
+    skill_path = ROOT / "SKILL.md"
+    if not skill_path.exists():
+        return "unknown"
+    text = skill_path.read_text(encoding="utf-8")
+    match = _VERSION_RE.search(text)
+    return match.group(1).strip() if match else "unknown"
 
 
 def parse_args() -> argparse.Namespace:
@@ -59,15 +70,16 @@ def create_base_dirs(path: Path) -> None:
         (path / name).mkdir(parents=True, exist_ok=True)
 
 
-def render_template(text: str, project_name: str, owner: str, package_date: str) -> str:
+def render_template(text: str, project_name: str, owner: str, package_date: str, skill_version: str) -> str:
     return (
         text.replace("{{PROJECT_NAME}}", project_name)
         .replace("{{OWNER}}", owner)
         .replace("{{DATE}}", package_date)
+        .replace("{{SKILL_VERSION}}", skill_version)
     )
 
 
-def copy_templates(output_dir: Path, project_name: str, owner: str, package_date: str) -> list[Path]:
+def copy_templates(output_dir: Path, project_name: str, owner: str, package_date: str, skill_version: str) -> list[Path]:
     created_files: list[Path] = []
     for template_path in sorted(TEMPLATE_ROOT.rglob("*")):
         if template_path.is_dir():
@@ -81,6 +93,7 @@ def copy_templates(output_dir: Path, project_name: str, owner: str, package_date
             project_name=project_name,
             owner=owner,
             package_date=package_date,
+            skill_version=skill_version,
         )
         target_path.write_text(rendered, encoding="utf-8")
         created_files.append(target_path)
@@ -95,6 +108,8 @@ def main() -> int:
         print(f"Template root not found: {TEMPLATE_ROOT}", file=sys.stderr)
         return 1
 
+    skill_version = read_skill_version()
+
     ensure_output_dir(output_dir, force=args.force)
     create_base_dirs(output_dir)
     created_files = copy_templates(
@@ -102,9 +117,10 @@ def main() -> int:
         project_name=args.project_name,
         owner=args.owner,
         package_date=args.package_date,
+        skill_version=skill_version,
     )
 
-    print(f"Created logo-system package at {output_dir}")
+    print(f"Created logo-system package (skill v{skill_version}) at {output_dir}")
     for file_path in created_files:
         print(f"- {file_path}")
     return 0

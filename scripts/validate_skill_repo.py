@@ -10,6 +10,8 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_FILES = [
     "README.md",
     "SKILL.md",
+    "CHANGELOG.md",
+    "MIGRATION.md",
     ".claude/skills/mobile-logo-system/SKILL.md",
     "agents/openai.yaml",
     "references/sources.md",
@@ -21,6 +23,7 @@ REQUIRED_FILES = [
     "references/example-requests.md",
     "references/example-responses.md",
     "references/production-resources.md",
+    "references/prompt-library.md",
     "references/geometric-craft.md",
     "references/color-system.md",
     "references/typography-craft.md",
@@ -72,6 +75,8 @@ def validate_skill_frontmatter() -> None:
     frontmatter = match.group("body")
     if "name:" not in frontmatter or "description:" not in frontmatter:
         fail("SKILL.md frontmatter must contain both name and description")
+    if "version:" not in frontmatter:
+        fail("SKILL.md frontmatter must contain a version field")
 
 
 def validate_relative_links() -> None:

@@ -35,42 +35,68 @@ Recommendations:
 - I would explore three directions, each tied to the current product rather than inventing a disconnected visual language.
 
 - Direction 1: Quiet Halo
+  Type: evolutionary
   Core metaphor: protected calm
+  Construction method: circle grid — three concentric circles (r, r*0.618, r*0.382) define the outer shell and inner cut
+  Color rationale: monochromatic warm (primary: muted amber at 60% area, secondary: deep warm brown at 30%, accent: soft cream highlight at 10%). Analogous to current UI palette. Grayscale conversion preserves hierarchy through value contrast.
+  Monochrome mapping: outer shell filled, inner cut as negative space — identity survives in one color.
   Why it fits the project: preserves the product's warm, rounded, reassuring tone
   Silhouette logic: one enclosing outer form plus one unmistakable inner cut
   60px/29px logic: the outer shape remains recognizable even if the internal cut simplifies
   Risk: may still feel too close to category wellness cliches unless the inner cut becomes more proprietary
+  Longevity: structural — the identity lives in the circle-cut relationship, not in rendering style
 
 - Direction 2: Folded Light
+  Type: adjacent
   Core metaphor: a crafted fold that suggests care, ritual, and transition into rest
+  Construction method: golden-ratio rectangle (1:1.618) as bounding box, fold angle at 23 degrees (derived from the diagonal of a 5:12 rectangle, echoing the UI card corner geometry). Key curves built from two related radii (r and r*phi).
+  Color rationale: split-complementary (primary: warm terracotta at 55%, secondary: deep indigo at 35%, accent: soft gold at 10%). Internal hierarchy survives grayscale because terracotta and indigo have different luminance values. CVD-safe: tested under protanopia simulation — terracotta shifts but remains distinct from indigo through luminance.
+  Monochrome mapping: fold reads as a single notch in the silhouette — shape carries identity without color.
   Why it fits the project: keeps the product's softness but introduces stronger shape memory
   Silhouette logic: asymmetrical outer contour with one directional fold cue
   60px/29px logic: the fold becomes a single decisive notch rather than a detailed crease
   Risk: if over-rendered, it will become premium decoration instead of strong icon geometry
+  Longevity: structural — the fold is geometry, not a gradient trick. Style-agnostic silhouette test: passes in flat, outline, and cut-out.
 
 - Direction 3: Lantern Mark
+  Type: adjacent
   Core metaphor: contained warmth and guidance
+  Construction method: square module grid (12x12), outer container anchored to grid intersections, centered core occupies a 4x4 inner zone. Optical corrections: container extends 3% below geometric baseline (overshoot for the flat bottom edge creates visual stability). Visual center shifted 4% upward.
+  Color rationale: complementary (primary: deep teal at 50%, secondary: warm amber core at 35%, background: near-black at 15%). Contrast ratio mark-to-background: 5.2:1. Grayscale: teal and amber resolve to different gray values — hierarchy preserved. CVD: teal-amber pair survives deuteranopia (luminance-driven contrast).
+  Monochrome mapping: container outline + solid core mass — reads as a lantern shape in one color.
   Why it fits the project: better distinctiveness while staying emotionally aligned with the current interface
   Silhouette logic: stable container plus a centered light core
   60px/29px logic: container remains primary, core simplifies to one contrasting mass
   Risk: can drift into finance or utility if the proportions become too severe
+  Longevity: structural — container + core is archetypal, not trend-dependent.
 
-- Strongest first move: Direction 2
-  Why: it improves distinctiveness without forcing a full stylistic reset and has the best chance of surviving both iOS and Android monochrome constraints.
+Evaluation matrix:
+| Direction    | Distinctive | Small size | Brand fit | Premium | Mono | Geometric | Color | Context | Longevity | Total |
+|--------------|-------------|------------|-----------|---------|------|-----------|-------|---------|-----------|-------|
+| Quiet Halo   | 3           | 4          | 5         | 4       | 4    | 4         | 4     | 3       | 4         | 35    |
+| Folded Light | 5           | 4          | 4         | 4       | 4    | 5         | 5     | 4       | 5         | 40    |
+| Lantern Mark | 4           | 4          | 4         | 3       | 5    | 4         | 4     | 4       | 4         | 36    |
+
+- Strongest first move: Direction 2 (Folded Light)
+  Why: highest total score. It improves distinctiveness without forcing a full stylistic reset, has the strongest geometric construction, and has the best longevity — the identity lives in shape, not in rendering.
+  Highest-risk craft weakness: the fold angle must be precisely controlled or the asymmetry will feel accidental rather than designed.
 
 - Improvement moves for Direction 2:
-  1. Tighten the outer silhouette so the fold reads from shape, not rendering.
-  2. Remove any secondary internal highlight that would clog at 29px.
-  3. Align the fold angle with the geometry already present in the UI cards and buttons.
+  1. Tighten the outer silhouette so the fold reads from shape, not rendering. Rationalize curves to G1 tangent continuity at all junctions.
+  2. Remove any secondary internal highlight that would clog at 29px. Test pixel alignment at 29px — ensure the notch falls on a whole-pixel boundary.
+  3. Align the fold angle with the geometry already present in the UI cards and buttons. Verify consistent corner radius progression (r, r/2, r*2).
+  4. Run negative space audit: fill counterforms with contrasting color — ensure trapped spaces are deliberate.
+  5. Context test: place on iOS home screen among Calm, Headspace, Sleep Cycle, Pillow, Rise, AutoSleep, Oura, SleepScore — verify differentiation.
 
 Accessibility and legibility considerations:
-- The icon should remain identifiable without relying on color contrast alone.
+- The icon should remain identifiable without relying on color contrast alone — verified via grayscale and CVD simulation.
 - Internal detail should be treated as optional and removable below 60px.
 - A one-color version must preserve the core metaphor before any premium surface treatment is approved.
+- Contrast ratio between mark and likely backgrounds: >= 3:1 verified for both light and dark wallpapers.
 
 Next actions:
-- I can turn these three territories into a scored first concept round.
-- If you want the safest path, I will start with one evolutionary and one adjacent direction only.
+- I can build Direction 2 in a design tool, run the full craft pass (geometric grid, optical corrections, path cleanliness, tangent continuity), and output a context-tested first concept.
+- If you want the safest path, I will start with one evolutionary (Quiet Halo) and one adjacent (Folded Light) direction only.
 - One high-leverage question: should the next round preserve the current symbol's recognizability for existing users, or can we prioritize distinctiveness more aggressively?
 ```
 
@@ -165,31 +191,51 @@ Recommendations:
   29px reduction evidence is missing.
   The current package does not clearly separate what is visually validated from what is still conceptual.
 
+- Craft audit:
+  Geometric: the mark appears to use a grid, but two curves on the upper left have a visible tangent break (G0 instead of G1). Three unnecessary anchor points on the right edge suggest the path was not cleaned after initial construction.
+  Color: contrast ratio mark-to-background is 4.1:1 (passes >= 3:1). However, internal contrast between primary and secondary elements is only 1.6:1 — below the 2:1 threshold. Grayscale conversion causes the secondary element to merge with the primary. CVD (deuteranopia): the green-to-blue internal contrast fails.
+  Typography: wordmark uses a geometric sans (appropriate for the product), but kerning between "r" and "a" is too tight at logo scale, creating a visual merge. No lockup proportions are documented.
+  Negative space: the counterform inside the mark is accidental — filling it with a contrasting color reveals an irregular, meaningless shape.
+  Longevity: style-agnostic silhouette test — flat fill: pass. Outline only: fail (the inner detail disappears). Cut-out: partial pass. The identity is partially dependent on rendering, not fully structural.
+
+- Context test results:
+  iOS home screen (light wallpaper): the icon is visible but does not stand out — the outer silhouette is too similar to three competitor icons in the wellness category.
+  iOS home screen (dark wallpaper): pass — contrast is sufficient.
+  App Store listing scale: the mark is legible but the internal detail is not visible at listing size.
+  Competitor row (Calm, Headspace, Sleep Cycle, Pillow, Rise): the icon ranks 4th in distinctiveness out of 6.
+
 - Highest-risk issue:
-  The mark may still be relying on subtle internal contrast that disappears in one color.
+  The mark may still be relying on subtle internal contrast that disappears in one color. The negative space is accidental, not designed.
 
-- Required fixes before handoff:
-  1. Approve a true monochrome icon, not an auto-derived grayscale version.
-  2. Add small-size validation at 29px on both light and dark backgrounds.
-  3. Document foreground/background responsibility for the adaptive icon package.
-  4. Add one line per deliverable stating whether it is final, provisional, or concept-only.
+- Punch list ordered by shipping risk:
+  1. [critical] Approve a true monochrome icon, not an auto-derived grayscale version.
+  2. [critical] Fix internal contrast ratio: increase to >= 2:1 or redesign the secondary element.
+  3. [critical] Add small-size validation at 29px on both light and dark backgrounds.
+  4. [high] Fix the tangent break on the upper-left curves (G1 minimum).
+  5. [high] Clean the vector path: remove 3 unnecessary anchor points.
+  6. [high] Redesign the counterform to be a deliberate shape.
+  7. [medium] Fix "r-a" kerning in the wordmark.
+  8. [medium] Document foreground/background responsibility for the adaptive icon package.
+  9. [medium] Document lockup proportions (horizontal and stacked).
+  10. [low] Add one line per deliverable stating whether it is final, provisional, or concept-only.
 
-- Suggested handoff package:
-  rationale.md
-  mark-flat
-  mark-monochrome
-  wordmark
-  ios-icon-notes.md
-  android-adaptive-notes.md
-  export-checklist.md
+- Package status:
+  rationale.md: provisional
+  mark-flat: revise (craft issues above)
+  mark-monochrome: missing
+  wordmark: revise (kerning, lockup docs)
+  ios-icon-notes.md: provisional
+  android-adaptive-notes.md: missing
+  reduction-checks.md: incomplete (29px missing)
+  export-checklist.md: not ready
 
 Accessibility and legibility considerations:
-- The icon must preserve identity without depending on color alone.
+- The icon must preserve identity without depending on color alone — currently fails this test (internal contrast too low, CVD failure).
 - Small-size failure is a usability issue, not just a branding issue.
 - Monochrome behavior should be treated as a first-class requirement for Android, not a late export variant.
 
 Next actions:
-- I can convert this audit into a concise punch list ordered by shipping risk.
-- If you want, I can also mark each current deliverable as pass, revise, or missing.
+- I can fix items 1-6 in the next craft pass and re-test.
+- If you want, I can also propose a monochrome layer design and re-run the context test after fixes.
 - One high-leverage question: is the next milestone internal review readiness, or final store submission readiness?
 ```

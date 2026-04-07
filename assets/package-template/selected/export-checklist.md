@@ -3,6 +3,7 @@
 Project: {{PROJECT_NAME}}
 Owner: {{OWNER}}
 Date: {{DATE}}
+Skill version: {{SKILL_VERSION}}
 
 ## Package Status
 

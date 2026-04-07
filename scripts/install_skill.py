@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 from pathlib import Path
 import shutil
 import sys
@@ -12,6 +13,16 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILL_NAME = "mobile-logo-system"
 IGNORE_PATTERNS = shutil.ignore_patterns(".git", "__pycache__", ".DS_Store")
 CLAUDE_VENDOR_IGNORE_NAMES = {".git", ".claude", "__pycache__", ".DS_Store"}
+_VERSION_RE = re.compile(r"^version:\s*(.+)$", re.MULTILINE)
+
+
+def read_skill_version(root: Path = ROOT) -> str:
+    skill_path = root / "SKILL.md"
+    if not skill_path.exists():
+        return "unknown"
+    text = skill_path.read_text(encoding="utf-8")
+    match = _VERSION_RE.search(text)
+    return match.group(1).strip() if match else "unknown"
 
 
 def parse_args() -> argparse.Namespace:
@@ -48,7 +59,16 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Overwrite an existing install target.",
     )
+    parser.add_argument(
+        "--version",
+        action="store_true",
+        dest="show_version",
+        help="Show the skill version and exit.",
+    )
     args = parser.parse_args()
+    if args.show_version:
+        print(f"{SKILL_NAME} {read_skill_version()}")
+        raise SystemExit(0)
     if not args.codex and not args.claude_project:
         parser.error("Choose at least one install target: --codex and/or --claude-project.")
     return args
@@ -76,6 +96,25 @@ def remove_path(path: Path) -> None:
     shutil.rmtree(path)
 
 
+def detect_installed_version(dest: Path) -> str | None:
+    if dest.is_symlink():
+        target = dest.resolve()
+        return read_skill_version(target) if target.is_dir() else None
+    if dest.is_dir():
+        return read_skill_version(dest)
+    return None
+
+
+def print_upgrade_notice(target_label: str, old_version: str | None, new_version: str) -> None:
+    old = old_version or "unknown"
+    if old == new_version:
+        print(f"[info] {target_label}: reinstalling v{new_version}")
+    else:
+        print(f"[info] {target_label}: upgrading v{old} -> v{new_version}")
+        if old != "unknown" and new_version.startswith("2.") and not old.startswith("2."):
+            print(f"[info] This is a major upgrade. See MIGRATION.md for breaking changes.")
+
+
 def install_codex(codex_home: Path, mode: str, force: bool) -> Path:
     dest = codex_home / "skills" / SKILL_NAME
     if dest.exists() or dest.is_symlink():
@@ -83,6 +122,8 @@ def install_codex(codex_home: Path, mode: str, force: bool) -> Path:
             raise SystemExit(
                 f"Codex skill target already exists: {dest}\nUse --force to overwrite it."
             )
+        old_version = detect_installed_version(dest)
+        print_upgrade_notice("Codex", old_version, read_skill_version())
         remove_path(dest)
     ensure_parent(dest)
     if mode == "link":
@@ -159,6 +200,8 @@ def install_claude(project_root: Path, mode: str, force: bool) -> tuple[Path, Pa
             raise SystemExit(
                 f"Claude vendor target already exists: {vendor_dest}\nUse --force to overwrite it."
             )
+        old_version = detect_installed_version(vendor_dest)
+        print_upgrade_notice("Claude", old_version, read_skill_version())
         remove_path(vendor_dest)
 
     if wrapper_dest.exists():
@@ -180,11 +223,12 @@ def install_claude(project_root: Path, mode: str, force: bool) -> tuple[Path, Pa
 
 def main() -> int:
     args = parse_args()
+    version = read_skill_version()
 
     if args.codex:
         codex_home = resolve_codex_home(args.codex_home)
         codex_dest = install_codex(codex_home, mode=args.codex_mode, force=args.force)
-        print(f"[OK] Installed Codex skill to {codex_dest}")
+        print(f"[OK] Installed Codex skill v{version} to {codex_dest}")
 
     if args.claude_project:
         project_root = Path(args.claude_project).expanduser().resolve()
@@ -202,7 +246,7 @@ def main() -> int:
             mode=args.claude_mode,
             force=args.force,
         )
-        print(f"[OK] Installed Claude vendor files to {vendor_dest}")
+        print(f"[OK] Installed Claude vendor files v{version} to {vendor_dest}")
         print(f"[OK] Installed Claude skill wrapper to {wrapper_dest}")
 
     return 0

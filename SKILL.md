@@ -1,5 +1,6 @@
 ---
 name: mobile-logo-system
+version: 2.0.0
 description: Use when creating or refining a mobile-first logo system that includes a brand mark, wordmark, iOS app icon, Android adaptive icon, monochrome/themed icon, and shipping-ready asset package. Best for research-backed app branding work that must inspect the current project or brand first, stay current with platform and logo/icon guidance, and generate strong concepts, critique, and refinement.
 ---
 
@@ -158,7 +159,22 @@ Do not force flat/material/monochrome rounds unless:
 - the platform package requires them
 - the current concept depends on surface effects to survive
 
-### 8. Run a craft pass before finalizing
+### 8. Build stronger concept sets, not just more variants
+
+Read [references/concept-quality.md](references/concept-quality.md) when generating or reviewing directions.
+
+Every first-round concept set should cover purposeful range:
+- one project-aligned or evolutionary direction
+- one direction that improves distinctiveness without breaking fit
+- one stretch direction only if the brief or brand tolerance allows it
+
+Avoid random variation in:
+- gradients only
+- corner radius only
+- minor internal decoration
+- trivial color swaps presented as new concepts
+
+### 9. Run a craft pass before finalizing
 
 After refinement and before specialized rounds, run a dedicated craft pass.
 
@@ -174,21 +190,6 @@ The craft pass covers:
 Output a list of corrections made and remaining craft risks.
 
 The craft pass is what separates competent work from hi-end work.
-
-### 9. Build stronger concept sets, not just more variants
-
-Read [references/concept-quality.md](references/concept-quality.md) when generating or reviewing directions.
-
-Every first-round concept set should cover purposeful range:
-- one project-aligned or evolutionary direction
-- one direction that improves distinctiveness without breaking fit
-- one stretch direction only if the brief or brand tolerance allows it
-
-Avoid random variation in:
-- gradients only
-- corner radius only
-- minor internal decoration
-- trivial color swaps presented as new concepts
 
 ### 10. Evaluate aggressively
 
@@ -354,6 +355,7 @@ Load the following only when needed:
 - [references/round-types.md](references/round-types.md) for when to run flat/material/monochrome rounds
 - [references/example-requests.md](references/example-requests.md) for realistic request patterns
 - [references/example-responses.md](references/example-responses.md) for gold-standard answer shape and level of specificity
+- [references/prompt-library.md](references/prompt-library.md) for ready-to-use prompts covering common scenarios
 - [references/geometric-craft.md](references/geometric-craft.md) for construction grids, proportions, optical corrections, and pixel alignment
 - [references/color-system.md](references/color-system.md) for color harmonies, accessibility, gradient rules, and dark/light adaptation
 - [references/typography-craft.md](references/typography-craft.md) for type pairing, kerning, weight matching, and lockup construction
