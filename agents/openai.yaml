@@ -1,0 +1,8 @@
+interface:
+  display_name: "Mobile Logo System"
+  short_description: "Mobile logo, wordmark, and icon package workflow"
+  brand_color: "#C67A52"
+  default_prompt: "Use $mobile-logo-system to inspect the current project first, verify current platform and logo/icon guidance, generate strong mobile logo directions, critique them, and refine the best-fit option."
+
+policy:
+  allow_implicit_invocation: true
