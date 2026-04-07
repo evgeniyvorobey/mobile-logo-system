@@ -146,17 +146,36 @@ The default production order is:
 1. core concept round
 2. selection
 3. iterative refinement of 1 chosen concept
-4. only if useful: flat round
-5. only if useful: material/premium round
-6. only if useful: monochrome round
-7. package and export checklist
+4. craft pass (geometric, color, typography, premium, context)
+5. only if useful: flat round
+6. only if useful: material/premium round
+7. only if useful: monochrome round
+8. motion consideration (optional, recommended for premium)
+9. package and export checklist
 
 Do not force flat/material/monochrome rounds unless:
 - the user asks for them
 - the platform package requires them
 - the current concept depends on surface effects to survive
 
-### 8. Build stronger concept sets, not just more variants
+### 8. Run a craft pass before finalizing
+
+After refinement and before specialized rounds, run a dedicated craft pass.
+
+Read [references/geometric-craft.md](references/geometric-craft.md), [references/color-system.md](references/color-system.md), [references/typography-craft.md](references/typography-craft.md), and [references/premium-craft.md](references/premium-craft.md).
+
+The craft pass covers:
+- geometric construction: verify or establish a grid, apply optical corrections, clean paths
+- color craft: assign roles, check contrast ratios, test grayscale and CVD, define fallbacks
+- typography craft: justify pairing, match weights, kern at logo scale, construct lockups
+- premium craft: audit negative space, check fill ratio, verify light direction, run silhouette test
+- context validation: place on real home screens, test at store listing scale, run competitor row
+
+Output a list of corrections made and remaining craft risks.
+
+The craft pass is what separates competent work from hi-end work.
+
+### 9. Build stronger concept sets, not just more variants
 
 Read [references/concept-quality.md](references/concept-quality.md) when generating or reviewing directions.
 
@@ -171,7 +190,7 @@ Avoid random variation in:
 - minor internal decoration
 - trivial color swaps presented as new concepts
 
-### 9. Evaluate aggressively
+### 10. Evaluate aggressively
 
 Read [references/evaluation.md](references/evaluation.md) before selecting a direction.
 
@@ -189,7 +208,22 @@ Reject concepts that:
 - signal the wrong emotional tone
 - cannot plausibly become an Android adaptive icon
 
-### 10. Improve or question before the next round
+### 11. Validate in real context
+
+Read [references/context-testing.md](references/context-testing.md) before declaring any direction production-ready.
+
+Every mark that advances past concept selection must be tested in:
+- iOS and Android home screens (light and dark wallpapers, among real competitor icons)
+- App Store and Google Play listing scale
+- Settings / 29pt scale
+- notification bar (if applicable)
+- splash screen
+
+Run a direct competitor row comparison: place the icon among 5-7 direct competitors.
+
+A mark that looks great in isolation but fails on a home screen needs revision.
+
+### 12. Improve or question before the next round
 
 After presenting any concept set or review:
 - identify the strongest direction
@@ -206,7 +240,23 @@ Questions are warranted when the answer could materially change the direction, s
 
 If those answers are unavailable, proceed with labeled assumptions rather than blocking.
 
-### 11. Package for shipping
+### 13. Consider motion (optional)
+
+When the brand can benefit from animation, consider how the mark could animate:
+- app launch transition (icon to splash screen)
+- loading states (pulsing, rotating, morphing)
+- micro-interactions within the product UI
+
+Motion-ready principles:
+- the mark should have a clear element hierarchy that can be animated sequentially
+- the outer silhouette should be stable — animation should happen inside the silhouette
+- the mark must work fully without animation — motion is an enhancement, never a requirement
+
+Document which element could animate first, what kind of motion fits the brand, and any constraints.
+
+Skip this step only when the user explicitly wants static-only output or the project does not warrant it.
+
+### 14. Package for shipping
 
 Read [references/package-spec.md](references/package-spec.md) before final handoff.
 
@@ -304,6 +354,11 @@ Load the following only when needed:
 - [references/round-types.md](references/round-types.md) for when to run flat/material/monochrome rounds
 - [references/example-requests.md](references/example-requests.md) for realistic request patterns
 - [references/example-responses.md](references/example-responses.md) for gold-standard answer shape and level of specificity
+- [references/geometric-craft.md](references/geometric-craft.md) for construction grids, proportions, optical corrections, and pixel alignment
+- [references/color-system.md](references/color-system.md) for color harmonies, accessibility, gradient rules, and dark/light adaptation
+- [references/typography-craft.md](references/typography-craft.md) for type pairing, kerning, weight matching, and lockup construction
+- [references/context-testing.md](references/context-testing.md) for mandatory mockup contexts, competition proximity, and environmental testing
+- [references/premium-craft.md](references/premium-craft.md) for negative space mastery, material language, craftsmanship signals, and longevity assessment
 
 ## Hard Constraints
 
@@ -311,6 +366,7 @@ Do not:
 - invent official platform rules
 - invent current platform or store behavior without checking live sources when freshness matters
 - claim shipping readiness without reduction checks
+- claim shipping readiness without context testing (home screen, store listing)
 - choose a winner based on aesthetics alone
 - treat wordmark and app icon as interchangeable
 - rely on raster tracing as the final identity method
@@ -319,6 +375,13 @@ Do not:
 - overproduce variants without narrowing the decision space
 - ignore an existing design system and generate a disconnected brand direction without saying so explicitly
 - ask broad, low-signal questions when a labeled assumption would be enough
+- present concept geometry without stating the construction method
+- present colors without assigning structural roles and defining monochrome fallbacks
+- skip the craft pass when the work is expected to be hi-end quality
+- use gradients, glow, or effects to rescue a weak silhouette
+- treat negative space as leftover rather than designed
+- present a wordmark without justifying type classification and pairing logic
+- declare a mark premium without passing the style-agnostic silhouette test
 
 ## Success Criteria
 
@@ -329,7 +392,15 @@ This skill succeeds when the output is:
 - research-backed when current guidance matters
 - reduction-safe
 - platform-aware
+- geometrically constructed (built on a grid, not freehand)
+- color-rationalized (roles assigned, accessibility checked, fallbacks defined)
+- context-validated (tested on real home screens and store listings)
+- typography-crafted (pairing justified, kerned, lockups measured)
+- premium-verified (negative space deliberate, silhouette test passed, longevity assessed)
 - explainable
 - package-ready
 
 If the work looks stylish but would fail at 60px or in Android monochrome, it failed.
+If the work looks good in isolation but disappears on a real home screen, it failed.
+If the work depends on effects rather than structure for its identity, it failed.
+If the geometry is freehand with no construction logic, it is not hi-end.

@@ -34,9 +34,32 @@ Date: {{DATE}}
 - Monochrome layer survives:
 - Any masking or safe-zone concerns:
 
+## Context Checks
+
+- iOS home screen (light wallpaper):
+- iOS home screen (dark wallpaper):
+- Android home screen (circular mask):
+- Android home screen (rounded-square mask):
+- App Store listing scale:
+- Google Play listing scale:
+- Settings / 29pt:
+- Competitor row comparison:
+
+## Craft Checks
+
+- Construction grid used:
+- Optical corrections applied:
+- Color roles assigned:
+- Grayscale hierarchy survives:
+- CVD simulation passed:
+- Negative space deliberate:
+- Style-agnostic silhouette test:
+  flat / outline / cut-out — pass or fail
+
 ## Verdict
 
 - Current status:
   pass / revise / fail / unverified
 - Highest-risk issue:
+- Highest-risk craft weakness:
 - Next fix:

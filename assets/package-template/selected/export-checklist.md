@@ -14,6 +14,11 @@ Date: {{DATE}}
 - Android adaptive split defined:
 - Reduction checks logged:
 - Dark/light checks logged:
+- Craft pass completed:
+- Context testing completed:
+- Geometric construction verified:
+- Color accessibility verified:
+- Longevity assessment completed:
 
 ## Deliverables
 
@@ -36,6 +41,9 @@ Date: {{DATE}}
 - Platform-readiness concerns:
 - Store-performance assumptions still unverified:
 - Manual designer review still needed:
+- Craft risks (geometry, color, typography):
+- Context testing gaps:
+- Longevity risks (trend-dependent elements):
 
 ## Release Verdict
 

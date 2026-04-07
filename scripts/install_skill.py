@@ -131,6 +131,11 @@ When invoked:
    - `{repo_root_expr}/references/package-spec.md`
    - `{repo_root_expr}/references/production-resources.md`
    - `{repo_root_expr}/references/example-responses.md`
+   - `{repo_root_expr}/references/geometric-craft.md`
+   - `{repo_root_expr}/references/color-system.md`
+   - `{repo_root_expr}/references/typography-craft.md`
+   - `{repo_root_expr}/references/context-testing.md`
+   - `{repo_root_expr}/references/premium-craft.md`
 3. If the task requires real handoff files, use `{repo_root_expr}/scripts/init_logo_system_package.py`.
 4. Apply the canonical workflow to the current request.
 
