@@ -6,8 +6,10 @@ This is the full reusable workflow for mobile logo system work.
 
 This workflow supports two tiers:
 
-- **Standard** — Phases 1-6, 7, 8 (optional), 9, 11. Skips craft pass, full context testing, and motion. Uses 7-dimension evaluation.
+- **Standard** — Phases 1-6 (user gate), 7, 8 (optional), 9, 11. Skips craft pass, full context testing, and motion. Uses 7-dimension evaluation.
 - **Hi-end** — All phases including 7.5 (craft pass), full context testing in Phase 11, and Phase 10 (motion). Uses 11-dimension evaluation.
+
+Both tiers require Phase 6 (user selection) before proceeding. The skill must never self-select a winner.
 
 Default to standard. See SKILL.md step 1 for tier selection triggers.
 
@@ -81,7 +83,7 @@ Bad territory examples:
 
 ## Phase 5. Round 1 - Core Concepts
 
-Create 3-5 concept directions.
+Create up to 5 concept directions — **mark only** (symbol / icon). Do not produce wordmarks, lockups, color systems, or production files at this stage.
 
 For each:
 - build the large-size mark
@@ -93,16 +95,23 @@ Goal:
 - maximize concept diversity
 - minimize random stylistic noise
 
-## Phase 6. Selection
+## Phase 6. User Selection (mandatory gate)
 
-Narrow to 1-2 directions using `evaluation.md`.
+**Present the concepts and wait for the user to choose.**
+
+1. Show a brief evaluation summary (decision matrix or top-line scores).
+2. State which direction you consider strongest and why (one sentence).
+3. Ask the user to pick a direction or request changes.
+4. **Do not proceed** to refinement until the user responds.
+
+If the user requests modifications, iterate on the concept and re-present before moving on.
 
 Do not select based only on “looks best”.
-Use a decision matrix or equivalent structured judgment.
+Do not self-select a winner and continue to packaging.
 
 ## Phase 7. Iterative Refinement
 
-Refine one chosen concept.
+Refine the user's chosen concept.
 
 Typical refinement loop:
 1. tighten silhouette

@@ -7,7 +7,7 @@
 
 # Mobile Logo System Skill
 
-**Current version: 2.2.0** | [Changelog](CHANGELOG.md) | [Migration guide](MIGRATION.md)
+**Current version: 2.3.0** | [Changelog](CHANGELOG.md) | [Migration guide](MIGRATION.md)
 
 A reusable AI skill for Codex and Claude that helps create, review, refine, and package mobile-first logo systems.
 

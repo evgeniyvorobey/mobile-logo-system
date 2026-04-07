@@ -9,6 +9,19 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **minor** — new reference files, prompts, or capabilities without breaking existing packages
 - **patch** — typos, wording fixes, link corrections, documentation alignment
 
+## [2.3.0] - 2026-04-08
+
+### Added
+
+- Mandatory user selection gate (step 7b / Phase 6): skill now presents up to 5 mark-only concepts and waits for user choice before proceeding to refinement or packaging.
+- Concept quality guidance merged into step 7a for tighter generation.
+- Hard constraint: self-selecting a winner without user confirmation is explicitly prohibited.
+
+### Changed
+
+- Workflow Phase 5 now generates marks only — no wordmarks, lockups, or production files at concept stage.
+- Workflow Phase 6 renamed to "User Selection (mandatory gate)" with explicit stop-and-ask protocol.
+
 ## [2.2.0] - 2026-04-07
 
 ### Added

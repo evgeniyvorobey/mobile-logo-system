@@ -1,6 +1,6 @@
 ---
 name: mobile-logo-system
-version: 2.2.0
+version: 2.3.0
 description: Use when creating or refining a mobile-first logo system that includes a brand mark, wordmark, iOS app icon, Android adaptive icon, monochrome/themed icon, and shipping-ready asset package. Best for research-backed app branding work that must inspect the current project or brand first, stay current with platform and logo/icon guidance, and generate strong concepts, critique, and refinement.
 ---
 
@@ -158,38 +158,56 @@ Each territory must state:
 
 If the user asks for immediate visuals, keep the territory step short but do not skip it.
 
-### 7. Produce rounds intentionally
+### 7. Present concepts and wait for user selection
 
-The default production order is:
-1. core concept round
-2. selection
-3. iterative refinement of 1 chosen concept
-4. craft pass (geometric, color, typography, premium, context)
-5. only if useful: flat round
-6. only if useful: material/premium round
-7. only if useful: monochrome round
-8. motion consideration (optional, recommended for premium)
-9. package and export checklist
+This is a **mandatory gate**. Do not self-select a winner.
+
+#### 7a. Generate visual concepts
+
+Produce **up to 5** logo or app icon concepts — one per territory (or two for a strong territory).
+
+For each concept show:
+- the mark itself (SVG, Pencil frame, or described visual)
+- a one-line name
+- which territory it belongs to
+- a brief rationale (2-3 sentences)
+- the primary risk
+
+Read [references/concept-quality.md](references/concept-quality.md) when generating concepts.
+
+The concept set should cover purposeful range:
+- one project-aligned or evolutionary direction
+- one direction that improves distinctiveness without breaking fit
+- one stretch direction only if the brief or brand tolerance allows it
+
+Avoid random variation in gradients only, corner radius only, minor internal decoration, or trivial color swaps presented as new concepts.
+
+At this stage produce **only the mark** (symbol / icon). Do not generate wordmarks, lockups, color systems, full packages, or production files yet.
+
+#### 7b. Stop and ask the user
+
+After presenting the concepts:
+1. State which direction you consider strongest and why (one sentence).
+2. **Ask the user to choose** a direction or request changes.
+3. **Do not proceed** to refinement, craft pass, or packaging until the user responds.
+
+If the user asks for modifications to a concept, iterate on that concept and re-present before moving on.
+
+### 8. Produce rounds intentionally
+
+After the user selects a direction, the production order is:
+1. iterative refinement of the chosen concept
+2. craft pass (geometric, color, typography, premium, context)
+3. only if useful: flat round
+4. only if useful: material/premium round
+5. only if useful: monochrome round
+6. motion consideration (optional, recommended for premium)
+7. package and export checklist
 
 Do not force flat/material/monochrome rounds unless:
 - the user asks for them
 - the platform package requires them
 - the current concept depends on surface effects to survive
-
-### 8. Build stronger concept sets, not just more variants
-
-Read [references/concept-quality.md](references/concept-quality.md) when generating or reviewing directions.
-
-Every first-round concept set should cover purposeful range:
-- one project-aligned or evolutionary direction
-- one direction that improves distinctiveness without breaking fit
-- one stretch direction only if the brief or brand tolerance allows it
-
-Avoid random variation in:
-- gradients only
-- corner radius only
-- minor internal decoration
-- trivial color swaps presented as new concepts
 
 ### 9. Run a craft pass before finalizing
 
@@ -396,6 +414,7 @@ Do not:
 - skip Android monochrome/themed icon considerations
 - skip export planning when the user asks for a real package
 - overproduce variants without narrowing the decision space
+- self-select a winning concept without user confirmation — always present options and wait for the user's choice before proceeding to refinement or packaging
 - ignore an existing design system and generate a disconnected brand direction without saying so explicitly
 - ask broad, low-signal questions when a labeled assumption would be enough
 - present concept geometry without stating the construction method
