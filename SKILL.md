@@ -1,6 +1,6 @@
 ---
 name: mobile-logo-system
-version: 2.1.1
+version: 2.1.2
 description: Use when creating or refining a mobile-first logo system that includes a brand mark, wordmark, iOS app icon, Android adaptive icon, monochrome/themed icon, and shipping-ready asset package. Best for research-backed app branding work that must inspect the current project or brand first, stay current with platform and logo/icon guidance, and generate strong concepts, critique, and refinement.
 ---
 

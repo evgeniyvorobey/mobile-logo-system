@@ -1,6 +1,6 @@
 # Mobile Logo System Skill
 
-**Current version: 2.1.1** | [Changelog](CHANGELOG.md) | [Migration guide](MIGRATION.md)
+**Current version: 2.1.2** | [Changelog](CHANGELOG.md) | [Migration guide](MIGRATION.md)
 
 A reusable AI skill for Codex and Claude that helps create, review, refine, and package mobile-first logo systems.
 
@@ -18,6 +18,7 @@ It is built for real app branding work, not generic logo prompting. The skill be
 - [Validation](#validation)
 - [Ready-To-Use Prompts](#ready-to-use-prompts)
 - [Suggested Usage Pattern](#suggested-usage-pattern)
+- [Compatibility](#compatibility)
 - [Canonical Files](#canonical-files)
 
 ## What It Does
@@ -153,6 +154,10 @@ mobile-logo-system/
 ├── README.md
 ├── CHANGELOG.md
 ├── MIGRATION.md
+├── LICENSE
+├── .github/
+│   └── workflows/
+│       └── ci.yml                     # repo validation + installer smoke tests
 ├── .claude/
 │   └── skills/
 │       └── mobile-logo-system/

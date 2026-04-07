@@ -12,6 +12,8 @@ REQUIRED_FILES = [
     "SKILL.md",
     "CHANGELOG.md",
     "MIGRATION.md",
+    "LICENSE",
+    ".github/workflows/ci.yml",
     ".claude/skills/mobile-logo-system/SKILL.md",
     "agents/openai.yaml",
     "references/sources.md",

@@ -7,7 +7,17 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - **major** — breaking changes to templates, evaluation matrix, workflow phases, or output contract
 - **minor** — new reference files, prompts, or capabilities without breaking existing packages
-- **patch** — typos, wording fixes, link corrections
+- **patch** — typos, wording fixes, link corrections, documentation alignment
+
+## [2.1.2] - 2026-04-07
+
+### Fixed
+
+- README contents now includes the `Compatibility` section for complete in-page navigation.
+- README repository tree now reflects the current repo layout, including `LICENSE`
+  and `.github/workflows/ci.yml`.
+- `validate_skill_repo.py` now treats `LICENSE` and the CI workflow as required
+  repository files to help prevent documentation and structure drift.
 
 ## [2.1.1] - 2026-04-07
 
