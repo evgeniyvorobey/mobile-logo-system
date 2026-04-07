@@ -21,6 +21,11 @@ When invoked:
    - `${CLAUDE_SKILL_DIR}/../../../references/package-spec.md`
    - `${CLAUDE_SKILL_DIR}/../../../references/production-resources.md`
    - `${CLAUDE_SKILL_DIR}/../../../references/example-responses.md`
+   - `${CLAUDE_SKILL_DIR}/../../../references/geometric-craft.md`
+   - `${CLAUDE_SKILL_DIR}/../../../references/color-system.md`
+   - `${CLAUDE_SKILL_DIR}/../../../references/typography-craft.md`
+   - `${CLAUDE_SKILL_DIR}/../../../references/context-testing.md`
+   - `${CLAUDE_SKILL_DIR}/../../../references/premium-craft.md`
 3. If the task requires real handoff files, use `${CLAUDE_SKILL_DIR}/../../../scripts/init_logo_system_package.py`.
 4. Apply the canonical workflow to the current request.
 

@@ -27,6 +27,22 @@ Score each direction from 1-5 on:
 - Wordmark compatibility
   Can it pair cleanly with a wordmark without fighting it?
 
+- Geometric precision
+  Is the mark built on a construction grid? Are proportions intentional? Are optical corrections applied (overshoot, visual center, stroke compensation)?
+  See [geometric-craft.md](geometric-craft.md) for the full framework.
+
+- Color craft
+  Are color roles assigned (primary, secondary, accent)? Does the palette survive CVD simulation and grayscale conversion? Are gradient fallbacks defined?
+  See [color-system.md](color-system.md) for the full framework.
+
+- Context survival
+  Does the mark work on a real home screen among competitors? Does it hold up in store listings, notification bar, settings, and splash screen?
+  See [context-testing.md](context-testing.md) for mandatory mockup contexts.
+
+- Longevity
+  Is the mark's identity structural (shape, proportion, negative space) or stylistic (gradient trend, effect fashion)? Does it pass the style-agnostic silhouette test? Would it look dated in 3 years?
+  See [premium-craft.md](premium-craft.md) for the full longevity framework.
+
 ## Reduction Tests
 
 Every selected direction must be tested at:
@@ -89,16 +105,35 @@ Reject or rework if any of these are true:
 - the symbol is mostly trend-driven and weakly tied to the brand
 - the symbol is attractive but interchangeable
 - the symbol only feels premium because of rendering effects
+- the geometry is freehand with no visible construction logic
+- the color scheme fails grayscale conversion (internal hierarchy disappears)
+- the mark disappears on a real home screen among competitors
+- the mark's identity would not survive a trend change (style-agnostic silhouette test fails)
+- negative space is accidental rather than designed
+- curve junctions have visible tangent breaks (cusps or kinks)
 
 ## Suggested Decision Matrix
 
-Use a simple table:
+Use a full table:
 
-| Direction | Distinctive | Small size | Brand fit | Premium | Monochrome | Total |
-|-----------|-------------|------------|-----------|---------|------------|-------|
+| Direction | Distinctive | Small size | Brand fit | Premium | Monochrome | Geometric | Color | Context | Longevity | Total |
+|-----------|-------------|------------|-----------|---------|------------|-----------|-------|---------|-----------|-------|
 
 Then add a short note:
 - strongest reason to advance
 - strongest reason to reject
+- highest-risk craft weakness (the specific dimension most likely to cause problems post-launch)
 
-This skill should be able to explain both.
+This skill should be able to explain all three.
+
+## Craft Audit Gate
+
+Before a direction advances from selection to refinement, it must pass this gate:
+
+1. construction method stated: what grid or construction system was used?
+2. optical corrections listed: what overshoot, visual center, or stroke compensation was applied?
+3. color rationale stated: why these specific colors, not just "it looks good"?
+4. negative space checked: are counterforms deliberate or accidental?
+5. silhouette isolation tested: does the mark work as a flat single-color fill?
+
+If any of these cannot be answered, the direction is not ready for refinement. It needs a craft pass first.
