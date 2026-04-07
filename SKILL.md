@@ -47,6 +47,11 @@ Every response produced with this skill must:
 
 When the task is design production, the skill should create or update artifacts, not just discuss them.
 
+When a reusable handoff package is needed:
+- read [references/production-resources.md](references/production-resources.md)
+- prefer the bundled package templates over ad hoc file naming
+- scaffold files when useful instead of leaving the package implied
+
 ## Workflow
 
 ### 1. Classify the request
@@ -236,6 +241,16 @@ Use image generation only for broad exploration or mood support.
 Do not treat generated raster outputs as final logo masters.
 Final logo decisions must be validated as simplified vector-like forms.
 
+### Production package resources
+
+Use [references/production-resources.md](references/production-resources.md) when the user wants files, handoff, or a real package.
+
+If the project does not already contain a handoff structure, scaffold one with:
+
+`python3 scripts/init_logo_system_package.py /target/path/logo-system --project-name "Project Name"`
+
+Then fill or update only the files that are warranted by the current task.
+
 ### Web research
 
 Use browsing whenever:
@@ -282,11 +297,13 @@ Load the following only when needed:
 - [references/live-research.md](references/live-research.md) for up-to-date official and research watchlists
 - [references/project-audit.md](references/project-audit.md) for project-first alignment and redesign tolerance
 - [references/workflow.md](references/workflow.md) for the full production workflow
+- [references/production-resources.md](references/production-resources.md) for scaffolding and updating real handoff files
 - [references/concept-quality.md](references/concept-quality.md) for stronger concept generation and critique
 - [references/evaluation.md](references/evaluation.md) for scoring and rejection criteria
 - [references/package-spec.md](references/package-spec.md) for final deliverables
 - [references/round-types.md](references/round-types.md) for when to run flat/material/monochrome rounds
 - [references/example-requests.md](references/example-requests.md) for realistic request patterns
+- [references/example-responses.md](references/example-responses.md) for gold-standard answer shape and level of specificity
 
 ## Hard Constraints
 
