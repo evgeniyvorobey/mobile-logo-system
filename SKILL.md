@@ -1,457 +1,167 @@
 ---
 name: mobile-logo-system
-version: 2.4.1
+version: 2.5.0
 description: Use when creating or refining a mobile-first logo system that includes a brand mark, wordmark, iOS app icon, Android adaptive icon, monochrome/themed icon, and shipping-ready asset package. Best for research-backed app branding work that must inspect the current project or brand first, stay current with platform and logo/icon guidance, and generate strong concepts, critique, and refinement.
 ---
 
 # Mobile Logo System
 
-Use this skill for mobile-first brand identity work where the output must survive real product constraints, not just look good on a white canvas.
-
-This skill is optimized for:
-- logo + wordmark systems
-- iOS app icons
-- Android adaptive icons
-- monochrome/themed icon variants
-- premium or brand-heavy mobile products
-- bilingual design rationale and handoff
-
-This is not a generic logo-prompt skill.
-It should behave like a compact brand director + mobile icon production workflow.
+A compact brand director + mobile icon production workflow. Not a generic logo-prompt skill.
 
 ## When To Use
 
-Use this skill when the user wants any of the following:
-- a new mobile logo or app icon
-- refinement of an existing mobile mark
-- logo concepts for an app, startup, or product brand
-- flat/material/monochrome iterations
-- an adaptive icon package for Android
-- a wordmark paired with a mobile brand symbol
-- evaluation of which logo direction should move forward
-- a production-ready export and QA checklist
+Use when the user wants: a new mobile logo or app icon, refinement of an existing mark, logo concepts for an app/startup/product, flat/material/monochrome iterations, an adaptive icon package, a wordmark paired with a symbol, evaluation of directions, or a production-ready export.
 
-Do not use this skill for:
-- general illustration or mascot design without mobile-icon constraints
-- brand strategy with no logo/icon deliverable
-- one-off decorative graphics that will not live as app icons or identity assets
+Do not use for: general illustration without mobile-icon constraints, brand strategy with no logo deliverable, one-off decorative graphics.
 
 ## Output Contract
 
-Every response produced with this skill must:
-- start with `Mode:`
-- include `Platform scope:`
-- include `Assumptions:`
-- distinguish `Known facts:` from `Recommendations:`
-- include accessibility or legibility considerations by default
-- end with `Next actions:`
+Every response must include: `Mode:`, `Platform scope:`, `Assumptions:`, `Known facts:` vs `Recommendations:`, accessibility/legibility considerations, `Next actions:`.
 
-When the task is design production, the skill should create or update artifacts, not just discuss them.
-
-When a reusable handoff package is needed:
-- read [references/production-resources.md](references/production-resources.md)
-- prefer the bundled package templates over ad hoc file naming
-- scaffold files when useful instead of leaving the package implied
+When the task is design production, create or update artifacts. When a handoff package is needed, read [references/production-resources.md](references/production-resources.md) and scaffold with `python3 scripts/init_logo_system_package.py`.
 
 ## Workflow
 
+Full workflow details: [references/workflow.md](references/workflow.md)
+
 ### 1. Classify the request
 
-Choose exactly one primary mode:
-- concept generation
-- concept review
-- concept refinement
-- asset packaging
-- export/readiness audit
+Choose one mode: concept generation, concept review, concept refinement, asset packaging, export/readiness audit.
 
 #### Quality tier
 
-Determine the quality tier for this task:
+**Standard** (default) — 7-dimension evaluation, reduction/monochrome checks, basic platform validation.
 
-**Standard** — solid, production-aware work. Covers concept territories, 7-dimension evaluation (Distinctive, Small size, Brand fit, Premium, Monochrome, Platform, Wordmark), reduction and monochrome checks, basic platform validation. Suitable for most requests.
+**Hi-end** — full craft pipeline: geometric construction, color audit, typography craft, premium craft, context testing, longevity, motion. 11-dimension matrix.
 
-**Hi-end** — full craft pipeline. Adds geometric construction pass, color system audit, typography craft, premium craft, comprehensive context testing, longevity assessment, and motion consideration. Uses the full 11-dimension evaluation matrix.
+Hi-end triggers: user requests premium/craft-level quality, premium/luxury brand, large user base, store optimization priority, specific craft step references.
 
-Default to **standard** unless any of these triggers are present:
-- the user explicitly requests hi-end, premium, production-ready, or craft-level quality
-- the brand is positioned as premium, luxury, or craft-sensitive
-- the product has a large established user base
-- store optimization or competitive differentiation is a stated priority
-- the user references specific craft steps (geometric grid, color accessibility, typography craft)
+State the chosen tier in the first response. Can upgrade mid-workflow.
 
-The tier can be upgraded mid-workflow if the work evolves. State the chosen tier in the first response.
+### 2. Audit the current project
 
-### 2. Audit the current project before ideation
+Read [references/project-audit.md](references/project-audit.md). Inspect local files, screenshots, UI, icons, brand assets before proposing directions. Extract: product personality, visual language, logo equity, redesign tolerance. If recognizable visual language exists, first concept family must stay compatible.
 
-Read [references/project-audit.md](references/project-audit.md) first whenever local files, screenshots, UI, icons, brand assets, or prior explorations are available.
+### 3. Build context
 
-Always inspect the project before proposing a new visual direction.
+Extract: product category, audience, emotional territory, competitive landscape, premium intent, primary surfaces, deliverable scope (symbol-only / wordmark-only / full system). Preserve user's existing direction unless they ask for a reset.
 
-Extract or infer:
-- current product personality
-- visual language already in use
-- existing logo/icon equity
-- whether the redesign should be evolutionary, adjacent, or a reset
-- what must stay recognizable
-- what is currently weak or inconsistent
+### 4. Separate the deliverables
 
-Default rule:
-- if the project already has a recognizable visual language, the first concept family must stay compatible with it
-- only propose a stylistic reset as an explicit alternative lane
+Never collapse into one blob: brand mark, wordmark, iOS icon, Android adaptive, Android monochrome, store presentation. Same concept can drive all, but each surface has different constraints.
 
-### 3. Build context before drawing
+### 5. Follow source priority
 
-Extract or infer:
-- product category
-- target audience
-- emotional territory
-- competitive landscape
-- premium or non-premium intent
-- where the mark will appear most often
-- whether the deliverable is symbol-only, wordmark-only, or full system
+Read [references/live-research.md](references/live-research.md) and [references/sources.md](references/sources.md). Order: (1) project audit, (2) platform docs, (3) HCI research, (4) premium research if relevant, (5) market scan, (6) inspiration galleries last. Platform constraints win over project style. Project truth wins over inspiration.
 
-If a user already has a direction, preserve its intent unless they ask for a reset.
+### 6. Generate concept territories
 
-### 4. Treat the deliverables as separate surfaces
-
-Never collapse these into one blob:
-- brand mark
-- wordmark
-- iOS app icon
-- Android adaptive icon
-- Android monochrome/themed icon
-- store presentation render
-
-The same concept can drive all of them, but each surface has different constraints.
-
-### 5. Follow the source priority
-
-Read [references/live-research.md](references/live-research.md) and [references/sources.md](references/sources.md) early.
-
-Use this discovery order:
-1. internal brand/product context and current project audit
-2. official platform and store documentation
-3. perception and HCI research
-4. premium/luxury perception research when relevant
-5. market scan and competitor patterns
-6. inspiration galleries only after the above
-
-Never let Dribbble/Behance/Pinterest become the source of truth.
-
-Conflict rule:
-- if current project style and platform shipping constraints disagree, platform constraints win
-- if inspiration and project truth disagree, project truth wins
-
-### 6. Generate concept territories first
-
-Before sketching variants, define 3-5 concept territories.
-
-Each territory must state:
-- core metaphor
-- emotional job
-- why it fits the brand
-- why it fits mobile icon constraints
-- primary risk
-- silhouette logic
-- why it should still work at `60px` and `29px`
-- whether it is evolutionary, adjacent, or reset relative to the current project
-
-If the user asks for immediate visuals, keep the territory step short but do not skip it.
+Define 3-5 territories before variants. Each: core metaphor, emotional job, brand fit, mobile fit, primary risk, silhouette logic, 60px/29px survival, evolutionary/adjacent/reset stance. Keep short if user wants immediate visuals, but do not skip.
 
 ### 7. Present concepts and wait for user selection
 
-This is a **mandatory gate**. Do not self-select a winner.
+**Mandatory gate. Do not self-select a winner.**
 
-#### 7a. Generate visual concepts
+**7a.** Produce **up to 5** marks (SVG or Pencil frame — schematic-level geometry sufficient). Each: one-line name, territory, brief rationale, primary risk. Read [references/concept-quality.md](references/concept-quality.md). Cover: one project-aligned, one distinctive, one stretch (if brief allows). No wordmarks, lockups, color systems, or production files.
 
-Produce **up to 5** logo or app icon concepts — one per territory (or two for a strong territory).
+**7b.** State strongest direction (one sentence). **Ask user to choose.** Do not proceed until they respond.
 
-For each concept show:
-- the mark as an **SVG or Pencil frame** — keep it simple, schematic-level geometry is sufficient
-- a one-line name
-- which territory it belongs to
-- a brief rationale (2-3 sentences)
-- the primary risk
+### 8. Produce rounds
 
-Read [references/concept-quality.md](references/concept-quality.md) when generating concepts.
+After user selects: (1) iterative refinement, (2) craft pass, (3) flat round if useful, (4) material/premium if useful, (5) monochrome if useful, (6) motion if warranted, (7) package. See [references/round-types.md](references/round-types.md).
 
-The concept set should cover purposeful range:
-- one project-aligned or evolutionary direction
-- one direction that improves distinctiveness without breaking fit
-- one stretch direction only if the brief or brand tolerance allows it
+### 9. Craft pass (hi-end only)
 
-Avoid random variation in gradients only, corner radius only, minor internal decoration, or trivial color swaps presented as new concepts.
+> Standard tier skips to step 10. **Load craft files only at this step.**
 
-Do not generate wordmarks, lockups, color systems, full packages, or production files at this stage.
+Read and run checklists: [geometric-craft.md](references/geometric-craft.md), [color-system.md](references/color-system.md), [typography-craft.md](references/typography-craft.md), [premium-craft.md](references/premium-craft.md), [context-testing.md](references/context-testing.md).
 
-#### 7b. Stop and ask the user
+Output: corrections made, remaining risks, updated mark.
 
-After presenting the concepts:
-1. State which direction you consider strongest and why (one sentence).
-2. **Ask the user to choose** a direction or request changes.
-3. **Do not proceed** to refinement, craft pass, or packaging until the user responds.
+### 10. Evaluate
 
-If the user asks for modifications to a concept, iterate on that concept and re-present before moving on.
+Read [references/evaluation.md](references/evaluation.md). Must survive: small-size reduction, monochrome, dark/light backgrounds, shape memory, category cliché comparison. Reject if: needs effects to work, collapses at 60px/29px, generic, wrong emotional tone, can't become Android adaptive icon.
 
-### 8. Produce rounds intentionally
+### 11. Validate in context
 
-After the user selects a direction, the production order is:
-1. iterative refinement of the chosen concept
-2. craft pass (geometric, color, typography, premium, context)
-3. only if useful: flat round
-4. only if useful: material/premium round
-5. only if useful: monochrome round
-6. motion consideration (optional, recommended for premium)
-7. package and export checklist
+> Full protocol: hi-end. Standard: verify 60px/29px, one home screen (light+dark), monochrome survival.
 
-Do not force flat/material/monochrome rounds unless:
-- the user asks for them
-- the platform package requires them
-- the current concept depends on surface effects to survive
+Read [references/context-testing.md](references/context-testing.md). Test: iOS/Android home screens, store listings, Settings/29pt, notification bar, splash screen, competitor row (5-7 icons).
 
-### 9. Run a craft pass before finalizing
+### 12. Improve or question
 
-> **Hi-end tier only.** Standard tier skips this step — move directly to evaluation.
->
-> **Load craft files only at this step** — do not read geometric-craft.md, color-system.md, typography-craft.md, premium-craft.md, or context-testing.md before the user has confirmed a direction in step 7b.
+Identify strongest direction, its weakest point, 2-3 improvement moves. Ask only high-leverage questions. Proceed with labeled assumptions when answers unavailable.
 
-After the user has selected a direction and refinement is underway, run a dedicated craft pass.
+### 13. Motion (optional, hi-end recommended)
 
-Read [references/geometric-craft.md](references/geometric-craft.md), [references/color-system.md](references/color-system.md), [references/typography-craft.md](references/typography-craft.md), and [references/premium-craft.md](references/premium-craft.md).
+Launch transition, loading states, micro-interactions. Outer silhouette stable — animation inside. Mark must work without motion.
 
-The craft pass covers:
-- geometric construction: verify or establish a grid, apply optical corrections, clean paths
-- color craft: assign roles, check contrast ratios, test grayscale and CVD, define fallbacks
-- typography craft: justify pairing, match weights, kern at logo scale, construct lockups
-- premium craft: audit negative space, check fill ratio, verify light direction, run silhouette test
-- context validation: place on real home screens, test at store listing scale, run competitor row
+### 14. Package
 
-Output a list of corrections made and remaining craft risks.
+Read [references/package-spec.md](references/package-spec.md). Include: rationale, mark + wordmark notes, iOS/Android/monochrome guidance, export checklist, unresolved risks.
 
-The craft pass is what separates competent work from hi-end work.
+## Tooling
 
-### 10. Evaluate aggressively
-
-Read [references/evaluation.md](references/evaluation.md) before selecting a direction.
-
-A strong direction must survive:
-- small-size reduction
-- monochrome conversion
-- dark and light backgrounds
-- shape memory after brief exposure
-- comparison with category clichés
-
-Reject concepts that:
-- need glow or gradients to work
-- collapse at 60px or 29px
-- look generic in category
-- signal the wrong emotional tone
-- cannot plausibly become an Android adaptive icon
-
-### 11. Validate in real context
-
-> **Full protocol is hi-end tier.** Standard tier: verify at 60px and 29px, test on one home screen (light and dark), confirm monochrome survival. Skip competitor row and full store listing mockups.
-
-Read [references/context-testing.md](references/context-testing.md) before declaring any direction production-ready.
-
-Every mark that advances past concept selection must be tested in:
-- iOS and Android home screens (light and dark wallpapers, among real competitor icons)
-- App Store and Google Play listing scale
-- Settings / 29pt scale
-- notification bar (if applicable)
-- splash screen
-
-Run a direct competitor row comparison: place the icon among 5-7 direct competitors.
-
-A mark that looks great in isolation but fails on a home screen needs revision.
-
-### 12. Improve or question before the next round
-
-After presenting any concept set or review:
-- identify the strongest direction
-- identify the weakest point in that direction
-- propose 2-3 concrete improvement moves
-- ask only the smallest number of high-leverage questions needed for the next round
-
-Questions are warranted when the answer could materially change the direction, such as:
-- redesign tolerance: evolution vs reset
-- whether an existing symbol must be preserved
-- premium positioning is mandatory vs optional
-- the icon must optimize for a specific store, market, or audience
-- legal/trademark constraints are already known
-
-If those answers are unavailable, proceed with labeled assumptions rather than blocking.
-
-### 13. Consider motion (optional, hi-end recommended)
-
-When the brand can benefit from animation, consider how the mark could animate:
-- app launch transition (icon to splash screen)
-- loading states (pulsing, rotating, morphing)
-- micro-interactions within the product UI
-
-Motion-ready principles:
-- the mark should have a clear element hierarchy that can be animated sequentially
-- the outer silhouette should be stable — animation should happen inside the silhouette
-- the mark must work fully without animation — motion is an enhancement, never a requirement
-
-Document which element could animate first, what kind of motion fits the brand, and any constraints.
-
-Skip this step only when the user explicitly wants static-only output or the project does not warrant it.
-
-### 14. Package for shipping
-
-Read [references/package-spec.md](references/package-spec.md) before final handoff.
-
-The final package must include:
-- chosen concept rationale
-- mark + wordmark usage notes
-- iOS icon guidance
-- Android foreground/background/monochrome guidance
-- flat master if applicable
-- export checklist
-- unresolved risks
-
-## Tooling Guidance
-
-### Pencil / `.pen`
-
-Use Pencil when the work should be created or reviewed inside an existing `.pen` design file.
-
-Preferred behavior:
-- keep prior design frames untouched unless explicitly asked to edit them
-- create new concept rounds in separate frames
-- verify each important round with screenshots
-- export final review boards when useful
-
-### Figma
-
-Use Figma when the user provides a Figma URL, node, or expects alignment to an existing design system or brand workspace.
-
-### Image generation
-
-Use image generation only for broad exploration or mood support.
-Do not treat generated raster outputs as final logo masters.
-Final logo decisions must be validated as simplified vector-like forms.
-
-### Production package resources
-
-Use [references/production-resources.md](references/production-resources.md) when the user wants files, handoff, or a real package.
-
-If the project does not already contain a handoff structure, scaffold one with:
-
-`python3 scripts/init_logo_system_package.py /target/path/logo-system --project-name "Project Name"`
-
-Then fill or update only the files that are warranted by the current task.
-
-### Web research
-
-Use browsing whenever:
-- platform guidance might have changed
-- the user asks for research
-- direct citations or links help the handoff
-- premium/perception claims need grounding
-- store behavior or icon testing guidance matters
-- the skill needs updated logo/icon guidance rather than stale memory
-
-### Local files
-
-Always search the local project first for:
-- current logo explorations
-- design boards
-- app icon assets
-- existing wordmarks
-- product constraints
-
-Also inspect when available:
-- UI screenshots
-- app store screenshots
-- color tokens or brand variables
-- typography choices
-- existing motion or illustration style
-
-If the product already has a clear design language, treat the logo/icon work as part of that system, not as an isolated art exercise.
+- **Pencil/.pen**: new rounds in separate frames, verify with screenshots
+- **Figma**: when user provides Figma URL or expects design system alignment
+- **Image generation**: mood/exploration only, not final masters
+- **Production package**: [references/production-resources.md](references/production-resources.md), scaffold with `init_logo_system_package.py`
+- **Web research**: when platform guidance may have changed, premium claims need grounding, store behavior matters
+- **Local files**: always search project first for logos, design boards, icons, UI screenshots, color tokens, typography
 
 ## Bilingual Policy
 
-This skill is bilingual.
-
-Default behavior:
-- reply in the user's language
-- keep official source titles in their original language
-- for reusable artifacts, prefer concise English labels with localized explanatory copy when helpful
-
-If the user clearly wants one language only, follow that.
+Reply in user's language. Keep source titles in original language. Prefer English labels with localized explanatory copy for reusable artifacts.
 
 ## Progressive Disclosure
 
-Load the following only when needed:
-- [references/sources.md](references/sources.md) for source map and authority order
-- [references/live-research.md](references/live-research.md) for up-to-date official and research watchlists
-- [references/project-audit.md](references/project-audit.md) for project-first alignment and redesign tolerance
-- [references/workflow.md](references/workflow.md) for the full production workflow
-- [references/production-resources.md](references/production-resources.md) for scaffolding and updating real handoff files
-- [references/concept-quality.md](references/concept-quality.md) for stronger concept generation and critique
-- [references/evaluation.md](references/evaluation.md) for scoring and rejection criteria
-- [references/package-spec.md](references/package-spec.md) for final deliverables
-- [references/round-types.md](references/round-types.md) for when to run flat/material/monochrome rounds
-- [references/geometric-craft.md](references/geometric-craft.md) — load only at step 9 (craft pass), not before
-- [references/color-system.md](references/color-system.md) — load only at step 9 (craft pass), not before
-- [references/typography-craft.md](references/typography-craft.md) — load only at step 9 (craft pass), not before
-- [references/context-testing.md](references/context-testing.md) — load only at step 9 (craft pass), not before
-- [references/premium-craft.md](references/premium-craft.md) — load only at step 9 (craft pass), not before
+Load only when needed:
+- [references/sources.md](references/sources.md) — source map
+- [references/live-research.md](references/live-research.md) — research watchlists
+- [references/project-audit.md](references/project-audit.md) — project alignment
+- [references/workflow.md](references/workflow.md) — full workflow
+- [references/production-resources.md](references/production-resources.md) — handoff files
+- [references/concept-quality.md](references/concept-quality.md) — concept critique
+- [references/evaluation.md](references/evaluation.md) — scoring
+- [references/package-spec.md](references/package-spec.md) — deliverables
+- [references/round-types.md](references/round-types.md) — specialized rounds
+- [references/geometric-craft.md](references/geometric-craft.md) — step 9 only
+- [references/color-system.md](references/color-system.md) — step 9 only
+- [references/typography-craft.md](references/typography-craft.md) — step 9 only
+- [references/context-testing.md](references/context-testing.md) — step 9 only
+- [references/premium-craft.md](references/premium-craft.md) — step 9 only
 
 ## Hard Constraints
 
 Do not:
-- invent official platform rules
-- invent current platform or store behavior without checking live sources when freshness matters
-- claim shipping readiness without reduction checks
-- claim shipping readiness without context testing (home screen, store listing)
+- invent official platform rules or current store behavior without checking live sources
+- claim shipping readiness without reduction checks and context testing
 - choose a winner based on aesthetics alone
 - treat wordmark and app icon as interchangeable
 - rely on raster tracing as the final identity method
 - skip Android monochrome/themed icon considerations
-- skip export planning when the user asks for a real package
+- skip export planning when a real package is requested
 - overproduce variants without narrowing the decision space
-- self-select a winning concept without user confirmation — always present options and wait for the user's choice before proceeding to refinement or packaging
-- generate wordmarks, lockups, color systems, full packages, or production files before the user has confirmed a direction in step 7b
-- load geometric-craft.md, color-system.md, typography-craft.md, premium-craft.md, or context-testing.md before step 9
-- ignore an existing design system and generate a disconnected brand direction without saying so explicitly
-- ask broad, low-signal questions when a labeled assumption would be enough
-- present concept geometry without stating the construction method
-- present colors without assigning structural roles and defining monochrome fallbacks
-- skip the craft pass on hi-end tier work
-- use gradients, glow, or effects to rescue a weak silhouette
-- treat negative space as leftover rather than designed
-- present a wordmark without justifying type classification and pairing logic
-- declare a mark premium without passing the style-agnostic silhouette test
+- self-select a winning concept — present options and wait for user's choice
+- generate wordmarks, lockups, production files before user confirms direction in step 7b
+- load craft files (geometric, color, typography, premium, context) before step 9
+- ignore existing design system without saying so explicitly
+- ask broad questions when a labeled assumption suffices
+- present geometry without construction method
+- present colors without roles and monochrome fallbacks
+- skip craft pass on hi-end work
+- use effects to rescue a weak silhouette
+- treat negative space as leftover
+- present wordmark without type classification and pairing logic
+- declare premium without passing silhouette test
 
 ## Success Criteria
 
 ### Both tiers
+Brand-correct, mobile-correct, project-aligned, research-backed, reduction-safe (60px/29px), platform-aware, explainable, package-ready.
 
-The output must be:
-- brand-correct
-- mobile-correct
-- project-aligned when existing brand context is present
-- research-backed when current guidance matters
-- reduction-safe (survives 60px and 29px)
-- platform-aware
-- explainable
-- package-ready
-
-### Hi-end tier (additional)
-
-The output must also be:
-- geometrically constructed (built on a grid, not freehand)
-- color-rationalized (roles assigned, accessibility checked, fallbacks defined)
-- context-validated (tested on real home screens and store listings, competitor row passed)
-- typography-crafted (pairing justified, kerned, lockups measured)
-- premium-verified (negative space deliberate, silhouette test passed, longevity assessed)
+### Hi-end (additional)
+Geometrically constructed, color-rationalized, context-validated, typography-crafted, premium-verified.
 
 ### Failure signals
-
-If the work looks stylish but would fail at 60px or in Android monochrome, it failed.
-If the work looks good in isolation but disappears on a real home screen, it failed.
-If the work depends on effects rather than structure for its identity, it failed.
-If the geometry is freehand with no construction logic, it is not hi-end.
+Fails at 60px or Android monochrome → failed. Disappears on real home screen → failed. Depends on effects for identity → failed. Freehand geometry → not hi-end.

@@ -9,6 +9,20 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **minor** — new reference files, prompts, or capabilities without breaking existing packages
 - **patch** — typos, wording fixes, link corrections, documentation alignment
 
+## [2.5.0] - 2026-04-08
+
+### Changed
+
+- SKILL.md compressed from 458 to 167 lines — keeps classification, tier, step order, links; details moved to references.
+- Split 5 craft files into runtime checklists (~55 lines each) and full author guides (*-guide.md):
+  - premium-craft.md (306 → 54), color-system.md (270 → 55), typography-craft.md (253 → 58), geometric-craft.md (248 → 53), context-testing.md (210 → 53).
+- workflow.md compressed from 259 to 96 lines — removed duplication with craft files.
+- Total runtime context load reduced by ~75% for hi-end runs.
+
+### Added
+
+- premium-craft-guide.md, color-system-guide.md, typography-craft-guide.md, geometric-craft-guide.md, context-testing-guide.md — full educational references for skill authors.
+
 ## [2.4.1] - 2026-04-08
 
 ### Fixed
