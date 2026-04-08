@@ -1,6 +1,6 @@
 ---
 name: mobile-logo-system
-version: 2.3.0
+version: 2.4.0
 description: Use when creating or refining a mobile-first logo system that includes a brand mark, wordmark, iOS app icon, Android adaptive icon, monochrome/themed icon, and shipping-ready asset package. Best for research-backed app branding work that must inspect the current project or brand first, stay current with platform and logo/icon guidance, and generate strong concepts, critique, and refinement.
 ---
 
@@ -167,11 +167,13 @@ This is a **mandatory gate**. Do not self-select a winner.
 Produce **up to 5** logo or app icon concepts — one per territory (or two for a strong territory).
 
 For each concept show:
-- the mark itself (SVG, Pencil frame, or described visual)
+- a **text description of the mark**: shape, construction logic, proportions, key visual characteristic
 - a one-line name
 - which territory it belongs to
 - a brief rationale (2-3 sentences)
 - the primary risk
+
+**Do not generate SVG, Pencil frames, or any production files at this stage.** Descriptions are sufficient for the user to evaluate directions. SVG is built only after the user confirms a direction in step 7b.
 
 Read [references/concept-quality.md](references/concept-quality.md) when generating concepts.
 
@@ -182,7 +184,7 @@ The concept set should cover purposeful range:
 
 Avoid random variation in gradients only, corner radius only, minor internal decoration, or trivial color swaps presented as new concepts.
 
-At this stage produce **only the mark** (symbol / icon). Do not generate wordmarks, lockups, color systems, full packages, or production files yet.
+Do not generate wordmarks, lockups, color systems, full packages, or production files at this stage.
 
 #### 7b. Stop and ask the user
 
@@ -212,8 +214,10 @@ Do not force flat/material/monochrome rounds unless:
 ### 9. Run a craft pass before finalizing
 
 > **Hi-end tier only.** Standard tier skips this step — move directly to evaluation.
+>
+> **Load craft files only at this step** — do not read geometric-craft.md, color-system.md, typography-craft.md, premium-craft.md, or context-testing.md before the user has confirmed a direction in step 7b.
 
-After refinement and before specialized rounds, run a dedicated craft pass.
+After the user has selected a direction and refinement is underway, run a dedicated craft pass.
 
 Read [references/geometric-craft.md](references/geometric-craft.md), [references/color-system.md](references/color-system.md), [references/typography-craft.md](references/typography-craft.md), and [references/premium-craft.md](references/premium-craft.md).
 
@@ -392,14 +396,11 @@ Load the following only when needed:
 - [references/evaluation.md](references/evaluation.md) for scoring and rejection criteria
 - [references/package-spec.md](references/package-spec.md) for final deliverables
 - [references/round-types.md](references/round-types.md) for when to run flat/material/monochrome rounds
-- [references/example-requests.md](references/example-requests.md) for realistic request patterns
-- [references/example-responses.md](references/example-responses.md) for gold-standard answer shape and level of specificity
-- [references/prompt-library.md](references/prompt-library.md) for ready-to-use prompts covering common scenarios
-- [references/geometric-craft.md](references/geometric-craft.md) for construction grids, proportions, optical corrections, and pixel alignment
-- [references/color-system.md](references/color-system.md) for color harmonies, accessibility, gradient rules, and dark/light adaptation
-- [references/typography-craft.md](references/typography-craft.md) for type pairing, kerning, weight matching, and lockup construction
-- [references/context-testing.md](references/context-testing.md) for mandatory mockup contexts, competition proximity, and environmental testing
-- [references/premium-craft.md](references/premium-craft.md) for negative space mastery, material language, craftsmanship signals, and longevity assessment
+- [references/geometric-craft.md](references/geometric-craft.md) — load only at step 9 (craft pass), not before
+- [references/color-system.md](references/color-system.md) — load only at step 9 (craft pass), not before
+- [references/typography-craft.md](references/typography-craft.md) — load only at step 9 (craft pass), not before
+- [references/context-testing.md](references/context-testing.md) — load only at step 9 (craft pass), not before
+- [references/premium-craft.md](references/premium-craft.md) — load only at step 9 (craft pass), not before
 
 ## Hard Constraints
 
@@ -415,6 +416,8 @@ Do not:
 - skip export planning when the user asks for a real package
 - overproduce variants without narrowing the decision space
 - self-select a winning concept without user confirmation — always present options and wait for the user's choice before proceeding to refinement or packaging
+- generate SVG, production files, or craft passes before the user has confirmed a direction in step 7b
+- load geometric-craft.md, color-system.md, typography-craft.md, premium-craft.md, or context-testing.md before step 9
 - ignore an existing design system and generate a disconnected brand direction without saying so explicitly
 - ask broad, low-signal questions when a labeled assumption would be enough
 - present concept geometry without stating the construction method

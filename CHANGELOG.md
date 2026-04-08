@@ -9,6 +9,18 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **minor** — new reference files, prompts, or capabilities without breaking existing packages
 - **patch** — typos, wording fixes, link corrections, documentation alignment
 
+## [2.4.0] - 2026-04-08
+
+### Changed
+
+- Concept stage (step 7a / Phase 5) now produces text descriptions only — SVG and production files are generated only after the user selects a direction.
+- Craft files (geometric-craft.md, color-system.md, typography-craft.md, premium-craft.md, context-testing.md) are now explicitly gated to step 9 — not loaded before user selection.
+- Removed example-requests.md, example-responses.md, and prompt-library.md from the Progressive Disclosure runtime list — these are authoring references, not runtime instructions.
+
+### Added
+
+- Hard constraints for premature SVG generation and early craft file loading.
+
 ## [2.3.0] - 2026-04-08
 
 ### Added
