@@ -9,6 +9,12 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **minor** — new reference files, prompts, or capabilities without breaking existing packages
 - **patch** — typos, wording fixes, link corrections, documentation alignment
 
+## [2.4.1] - 2026-04-08
+
+### Fixed
+
+- Restored SVG generation at concept stage (step 7a / Phase 5). Simple schematic-level marks are shown for each concept; full production files remain gated behind user selection.
+
 ## [2.4.0] - 2026-04-08
 
 ### Changed

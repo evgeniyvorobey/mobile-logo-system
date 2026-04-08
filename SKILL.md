@@ -1,6 +1,6 @@
 ---
 name: mobile-logo-system
-version: 2.4.0
+version: 2.4.1
 description: Use when creating or refining a mobile-first logo system that includes a brand mark, wordmark, iOS app icon, Android adaptive icon, monochrome/themed icon, and shipping-ready asset package. Best for research-backed app branding work that must inspect the current project or brand first, stay current with platform and logo/icon guidance, and generate strong concepts, critique, and refinement.
 ---
 
@@ -167,13 +167,11 @@ This is a **mandatory gate**. Do not self-select a winner.
 Produce **up to 5** logo or app icon concepts — one per territory (or two for a strong territory).
 
 For each concept show:
-- a **text description of the mark**: shape, construction logic, proportions, key visual characteristic
+- the mark as an **SVG or Pencil frame** — keep it simple, schematic-level geometry is sufficient
 - a one-line name
 - which territory it belongs to
 - a brief rationale (2-3 sentences)
 - the primary risk
-
-**Do not generate SVG, Pencil frames, or any production files at this stage.** Descriptions are sufficient for the user to evaluate directions. SVG is built only after the user confirms a direction in step 7b.
 
 Read [references/concept-quality.md](references/concept-quality.md) when generating concepts.
 
@@ -416,7 +414,7 @@ Do not:
 - skip export planning when the user asks for a real package
 - overproduce variants without narrowing the decision space
 - self-select a winning concept without user confirmation — always present options and wait for the user's choice before proceeding to refinement or packaging
-- generate SVG, production files, or craft passes before the user has confirmed a direction in step 7b
+- generate wordmarks, lockups, color systems, full packages, or production files before the user has confirmed a direction in step 7b
 - load geometric-craft.md, color-system.md, typography-craft.md, premium-craft.md, or context-testing.md before step 9
 - ignore an existing design system and generate a disconnected brand direction without saying so explicitly
 - ask broad, low-signal questions when a labeled assumption would be enough

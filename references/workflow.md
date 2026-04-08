@@ -83,15 +83,15 @@ Bad territory examples:
 
 ## Phase 5. Round 1 - Core Concepts
 
-Create up to 5 concept directions. **At this stage: text descriptions only — no SVG, no production files.**
+Create up to 5 concept directions. **At this stage: mark only — simple schematic SVG or Pencil frame. No wordmarks, lockups, color systems, or production files.**
 
 For each:
-- describe the mark: shape, construction logic, proportions, key visual characteristic
+- show the mark as a simple SVG (schematic-level geometry is sufficient)
 - explain what is essential to the shape
 - state the risk
 - note small-size survival logic (how the shape reads at 60px and 29px)
 
-SVG and production files are created only after the user selects a direction in Phase 6.
+Wordmarks, lockups, and production files are created only after the user selects a direction in Phase 6.
 
 Goal:
 - maximize concept diversity
