@@ -6,6 +6,14 @@ Date: {{DATE}}
 
 ## Directions Compared
 
+## Creative Range Snapshot
+
+- Divergence axes explored:
+- Seeds rejected and why:
+- Shortlisted territories:
+- Strongest creative risk:
+- Safest fallback:
+
 Standard tier (7 dimensions):
 
 | Direction | Type | Distinctive | Small Size | Brand Fit | Platform | Premium | Monochrome | Wordmark | Total | Advance? |

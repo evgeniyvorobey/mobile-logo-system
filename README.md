@@ -7,7 +7,7 @@
 
 # Mobile Logo System Skill
 
-**Current version: 2.5.0** | [Changelog](CHANGELOG.md) | [Migration guide](MIGRATION.md)
+**Current version: 2.6.0** | [Changelog](CHANGELOG.md) | [Migration guide](MIGRATION.md)
 
 A reusable AI skill for Codex and Claude that helps create, review, refine, and package mobile-first logo systems.
 
@@ -42,6 +42,7 @@ It is built for real app branding work, not generic logo prompting. The skill be
 - Project-first audit using local assets, screenshots, design boards, and current UI patterns
 - Live research workflow for Apple, Android, App Store, and Google Play guidance
 - Stronger concept quality rules so first rounds are differentiated instead of decorative noise
+- Creative divergence pass for broader, more original concept range before narrowing
 - Review/refinement loops that identify the best option, its weakest point, and 2-3 concrete upgrade moves
 - Hi-end craft pass: geometric construction, color system, typography craft, premium craft, context validation
 - Production package scaffolding via [`scripts/init_logo_system_package.py`](scripts/init_logo_system_package.py)
@@ -174,6 +175,7 @@ mobile-logo-system/
 ├── references/
 │   ├── color-system.md                # color harmonies, accessibility, gradient rules
 │   ├── concept-quality.md             # stronger concept generation and critique
+│   ├── creative-divergence.md         # broader idea range before concept narrowing
 │   ├── context-testing.md             # mandatory mockup contexts, competitor proximity
 │   ├── evaluation.md                  # scoring matrix, rejection triggers
 │   ├── example-requests.md            # realistic request patterns
@@ -196,8 +198,12 @@ mobile-logo-system/
 └── scripts/
     ├── install_skill.py               # install into Codex and/or Claude projects
     ├── init_logo_system_package.py    # scaffold handoff package from templates
+    ├── render_svg_contact_sheet.py    # create SVG reduction/context review sheets
     ├── validate_skill_repo.py         # validate repo structure and relative links
-    └── smoke_test_installer.py        # installer smoke tests
+    ├── smoke_test_contact_sheet_browser.py # browser visual smoke test
+    ├── smoke_test_contact_sheet.py    # contact sheet smoke test
+    ├── smoke_test_installer.py        # installer smoke tests
+    └── smoke_test_package_scaffold.py # package scaffold smoke test
 ```
 
 ## Versioning
@@ -221,8 +227,16 @@ See [`MIGRATION.md`](MIGRATION.md) for step-by-step upgrade instructions.
 ```bash
 python3 scripts/validate_skill_repo.py        # structure, links, version consistency
 python3 scripts/smoke_test_installer.py        # installer smoke tests
+python3 scripts/smoke_test_contact_sheet.py    # SVG contact sheet smoke test
+python3 scripts/smoke_test_contact_sheet_browser.py  # browser visual smoke test
+python3 scripts/smoke_test_package_scaffold.py # package scaffold smoke test
 python3 scripts/install_skill.py --help        # installer options
 ```
+
+The browser visual smoke test requires Node.js/npm (`npx`) and installs a
+temporary Playwright package in a temp directory. It opens the generated HTML
+contact sheet in headless Chromium and verifies visible SVG images plus key
+review sections.
 
 ## Ready-To-Use Prompts
 
@@ -236,12 +250,13 @@ See the full prompt library: [`references/prompt-library.md`](references/prompt-
 
 1. ask it to inspect the current project first
 2. let it verify live platform/store guidance when the task depends on freshness
-3. ask for a first concept round with explicit evaluation
-4. ask it to recommend the strongest direction and 2-3 concrete improvement moves
-5. if hi-end: run the craft pass (geometric construction, color, typography, premium, context testing)
-6. refine based on evaluation or craft pass findings
-7. validate in real context (home screen, store listing, competitor row)
-8. once a direction is validated, scaffold or fill the handoff package
+3. ask for creative divergence when the category feels generic or more variety is needed
+4. ask for a first concept round with explicit evaluation
+5. let it recommend the strongest direction, then choose before refinement continues
+6. if hi-end: run the craft pass (geometric construction, color, typography, premium, context testing)
+7. refine based on evaluation or craft pass findings
+8. validate in real context (home screen, store listing, competitor row)
+9. once a direction is validated, scaffold or fill the handoff package
 
 ## Compatibility
 

@@ -29,9 +29,17 @@ Read `sources.md`. Pull: Apple icon guidance, Android adaptive guidance, one HCI
 
 Output: research synthesis, constraints, inferences.
 
+## Phase 3.5. Creative Divergence
+
+Run when the user asks for more creative, more varied, less generic, or reset-level work.
+
+Read `creative-divergence.md`. Create 8-12 quick seeds across different metaphor, silhouette, construction, emotional, platform, and category-distance axes. Shortlist 3-5 territories.
+
+Output: divergence snapshot, rejected seeds, shortlisted territories, strongest creative risk, safest fallback.
+
 ## Phase 4. Territory Definition
 
-Generate 3-5 concept territories. Each: name, metaphor, emotional promise, brand fit, mobile fit, risk.
+Generate 3-5 concept territories. Each: name, metaphor, emotional promise, brand fit, mobile fit, risk, silhouette topology, construction method, platform priority.
 
 ## Phase 5. Core Concepts
 

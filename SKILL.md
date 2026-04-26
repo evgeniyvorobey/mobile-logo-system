@@ -1,6 +1,6 @@
 ---
 name: mobile-logo-system
-version: 2.5.0
+version: 2.6.0
 description: Use when creating or refining a mobile-first logo system that includes a brand mark, wordmark, iOS app icon, Android adaptive icon, monochrome/themed icon, and shipping-ready asset package. Best for research-backed app branding work that must inspect the current project or brand first, stay current with platform and logo/icon guidance, and generate strong concepts, critique, and refinement.
 ---
 
@@ -56,13 +56,15 @@ Read [references/live-research.md](references/live-research.md) and [references/
 
 ### 6. Generate concept territories
 
-Define 3-5 territories before variants. Each: core metaphor, emotional job, brand fit, mobile fit, primary risk, silhouette logic, 60px/29px survival, evolutionary/adjacent/reset stance. Keep short if user wants immediate visuals, but do not skip.
+When the brief asks for more variety, more creativity, a less generic mark, or a reset, read [references/creative-divergence.md](references/creative-divergence.md) first. Run a short 8-12 seed divergence pass, then shortlist.
+
+Define 3-5 territories before variants. Each: core metaphor, emotional job, brand fit, mobile fit, primary risk, silhouette logic, 60px/29px survival, evolutionary/adjacent/reset stance. Cover meaning, silhouette topology, construction method, and platform priority — not only visual style. Keep short if user wants immediate visuals, but do not skip.
 
 ### 7. Present concepts and wait for user selection
 
 **Mandatory gate. Do not self-select a winner.**
 
-**7a.** Produce **up to 5** marks (SVG or Pencil frame — schematic-level geometry sufficient). Each: one-line name, territory, brief rationale, primary risk. Read [references/concept-quality.md](references/concept-quality.md). Cover: one project-aligned, one distinctive, one stretch (if brief allows). No wordmarks, lockups, color systems, or production files.
+**7a.** Produce **up to 5** marks (SVG or Pencil frame — schematic-level geometry sufficient). Each: one-line name, territory, brief rationale, primary risk. Read [references/concept-quality.md](references/concept-quality.md). Cover: one project-aligned, one distinctive, one stretch (if brief allows). No wordmarks, lockups, full color systems, or production files.
 
 **7b.** State strongest direction (one sentence). **Ask user to choose.** Do not proceed until they respond.
 
@@ -121,6 +123,7 @@ Load only when needed:
 - [references/project-audit.md](references/project-audit.md) — project alignment
 - [references/workflow.md](references/workflow.md) — full workflow
 - [references/production-resources.md](references/production-resources.md) — handoff files
+- [references/creative-divergence.md](references/creative-divergence.md) — broad idea range
 - [references/concept-quality.md](references/concept-quality.md) — concept critique
 - [references/evaluation.md](references/evaluation.md) — scoring
 - [references/package-spec.md](references/package-spec.md) — deliverables
@@ -141,6 +144,7 @@ Do not:
 - rely on raster tracing as the final identity method
 - skip Android monochrome/themed icon considerations
 - skip export planning when a real package is requested
+- fake diversity by changing only color, effects, or minor styling
 - overproduce variants without narrowing the decision space
 - self-select a winning concept — present options and wait for user's choice
 - generate wordmarks, lockups, production files before user confirms direction in step 7b

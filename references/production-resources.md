@@ -17,6 +17,15 @@ Use the bundled production resources when:
 - `scripts/init_logo_system_package.py`
   Use to scaffold a package directory with the standard structure and starter files.
 
+- `scripts/render_svg_contact_sheet.py`
+  Use to create an HTML review sheet for SVG marks across reduction sizes,
+  light/dark backgrounds, monochrome, iOS/Android safe zones, adaptive icon
+  frames, and foreground/background preview contexts.
+
+- `scripts/smoke_test_contact_sheet_browser.py`
+  Use to verify the generated contact sheet in headless Chromium when Node/npm
+  and Playwright are available.
+
 - `assets/package-template/reviews/project-style-snapshot.md`
   Use to record the current product language before ideation.
 
@@ -61,6 +70,21 @@ python3 scripts/init_logo_system_package.py /path/to/logo-system \
   --date "2026-04-07"
 ```
 
+## Contact Sheet Command
+
+Use when SVG marks are available:
+
+```bash
+python3 scripts/render_svg_contact_sheet.py selected/mark-flat.svg \
+  --output reviews/svg-contact-sheet.html
+```
+
+Browser smoke check:
+
+```bash
+python3 scripts/smoke_test_contact_sheet_browser.py
+```
+
 ## Usage Rules
 
 - If the project already has a package structure, update the existing files instead of blindly re-scaffolding.
@@ -73,5 +97,6 @@ python3 scripts/init_logo_system_package.py /path/to/logo-system \
 1. Run the project audit and fill `project-style-snapshot.md`.
 2. Generate directions and score them in `concept-scorecard.md`.
 3. Log reduction evidence in `reduction-checks.md`.
-4. Once a direction is chosen, fill the files under `selected/`.
-5. Update `export-checklist.md` last so it reflects current truth.
+4. Generate a contact sheet for any SVG marks that need visual review.
+5. Once a direction is chosen, fill the files under `selected/`.
+6. Update `export-checklist.md` last so it reflects current truth.

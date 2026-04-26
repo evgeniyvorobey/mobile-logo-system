@@ -19,6 +19,7 @@ REQUIRED_FILES = [
     "references/sources.md",
     "references/live-research.md",
     "references/project-audit.md",
+    "references/creative-divergence.md",
     "references/concept-quality.md",
     "references/evaluation.md",
     "references/package-spec.md",
@@ -33,7 +34,11 @@ REQUIRED_FILES = [
     "references/premium-craft.md",
     "scripts/install_skill.py",
     "scripts/init_logo_system_package.py",
+    "scripts/render_svg_contact_sheet.py",
+    "scripts/smoke_test_contact_sheet_browser.py",
+    "scripts/smoke_test_contact_sheet.py",
     "scripts/smoke_test_installer.py",
+    "scripts/smoke_test_package_scaffold.py",
     "assets/package-template/reviews/project-style-snapshot.md",
     "assets/package-template/reviews/concept-scorecard.md",
     "assets/package-template/reviews/reduction-checks.md",
@@ -154,12 +159,141 @@ def installer_smoke_test_expectations() -> bool:
     return all(marker in text for marker in required_markers)
 
 
+def validate_prompt_library_user_gate() -> None:
+    prompt_path = ROOT / "references" / "prompt-library.md"
+    text = prompt_path.read_text(encoding="utf-8")
+    forbidden_markers = [
+        "Recommend one winner",
+        "Select the winner",
+        "select winner",
+        "Run the craft pass on the winner",
+        "Score and select",
+    ]
+    found = [marker for marker in forbidden_markers if marker in text]
+    if found:
+        fail(
+            "Prompt library bypasses the mandatory user-selection gate:\n"
+            + "\n".join(found)
+        )
+    if "mandatory user-selection gate" not in text:
+        fail("Prompt library must mention the mandatory user-selection gate")
+
+
+def validate_contact_sheet_script() -> None:
+    script_text = (ROOT / "scripts" / "render_svg_contact_sheet.py").read_text(
+        encoding="utf-8"
+    )
+    smoke_text = (ROOT / "scripts" / "smoke_test_contact_sheet.py").read_text(
+        encoding="utf-8"
+    )
+    required_script_markers = [
+        "Reduction Review",
+        "Surface And Mask Review",
+        "Platform Safe Zone Review",
+        "Foreground / Background Preview",
+        "data:image/svg+xml;base64,",
+        "data-review-img",
+        "safe-zone-overlay",
+        "mask-squircle",
+        "android-adaptive-frame",
+        "Android circle",
+    ]
+    required_smoke_markers = [
+        "primary-symbol.svg",
+        "small-icon.svg",
+        "--sizes",
+        "29px",
+        "safe-zone-review",
+        "foreground-background-preview",
+    ]
+    missing_script = [
+        marker for marker in required_script_markers if marker not in script_text
+    ]
+    missing_smoke = [
+        marker for marker in required_smoke_markers if marker not in smoke_text
+    ]
+    if missing_script or missing_smoke:
+        fail(
+            "Contact sheet script expectations are not satisfied:\n"
+            + "\n".join(missing_script + missing_smoke)
+        )
+
+
+def validate_package_scaffold_smoke_test() -> None:
+    smoke_text = (ROOT / "scripts" / "smoke_test_package_scaffold.py").read_text(
+        encoding="utf-8"
+    )
+    required_markers = [
+        "init_logo_system_package.py",
+        "EXPECTED_DIRS",
+        "PLACEHOLDER_RE",
+        "Smoke Project",
+        "QA Team",
+        "2026-04-26",
+        "Unresolved template placeholders",
+        "Package scaffold smoke test passed",
+    ]
+    missing = [marker for marker in required_markers if marker not in smoke_text]
+    if missing:
+        fail(
+            "Package scaffold smoke test expectations are not satisfied:\n"
+            + "\n".join(missing)
+        )
+
+
+def validate_browser_smoke_test() -> None:
+    smoke_text = (ROOT / "scripts" / "smoke_test_contact_sheet_browser.py").read_text(
+        encoding="utf-8"
+    )
+    required_markers = [
+        "playwright",
+        "chromium.launch",
+        "data-review-img",
+        "safe-zone-review",
+        "foreground-background-preview",
+        "visibleImageCount",
+        "safeZoneOverlays",
+        "Browser contact sheet smoke test passed",
+    ]
+    missing = [marker for marker in required_markers if marker not in smoke_text]
+    if missing:
+        fail(
+            "Browser contact sheet smoke test expectations are not satisfied:\n"
+            + "\n".join(missing)
+        )
+
+
+def validate_creative_divergence_examples() -> None:
+    text = (ROOT / "references" / "creative-divergence.md").read_text(
+        encoding="utf-8"
+    )
+    required_markers = [
+        "Worked Examples",
+        "Bad Set: Decorative Pseudo-Difference",
+        "Good Set: True Divergence",
+        "Pseudo-Difference Filter",
+        "same metaphor class",
+        "same monochrome mapping",
+    ]
+    missing = [marker for marker in required_markers if marker not in text]
+    if missing:
+        fail(
+            "Creative divergence examples are incomplete:\n"
+            + "\n".join(missing)
+        )
+
+
 def main() -> int:
     validate_required_files()
     validate_skill_frontmatter()
     validate_relative_links()
     validate_version_consistency()
     validate_smoke_test_script()
+    validate_prompt_library_user_gate()
+    validate_contact_sheet_script()
+    validate_package_scaffold_smoke_test()
+    validate_browser_smoke_test()
+    validate_creative_divergence_examples()
     print("[OK] Skill repository structure and relative links are valid.")
     return 0
 

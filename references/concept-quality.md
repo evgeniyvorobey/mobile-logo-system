@@ -37,6 +37,11 @@ Do not fake variety by changing only:
 
 Those are refinements, not distinct concepts.
 
+When the user asks for more creative or more varied work, run
+[creative-divergence.md](creative-divergence.md) before narrowing. A strong set
+should differ by metaphor, silhouette topology, construction method, platform
+priority, and category distance — not just visual treatment.
+
 ## Small-Size Discipline
 
 Before treating a concept as serious, explain:

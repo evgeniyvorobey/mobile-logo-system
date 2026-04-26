@@ -6,6 +6,7 @@ Date: {{DATE}}
 
 ## Sizes Reviewed
 
+- Contact sheet:
 - 1024px:
 - 180px:
 - 120px:

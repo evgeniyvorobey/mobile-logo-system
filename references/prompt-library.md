@@ -1,6 +1,6 @@
 # Prompt Library
 
-Ready-to-use prompts for the mobile logo system skill. Each prompt activates the full hi-end workflow including craft pass, context testing, and production packaging.
+Ready-to-use prompts for the mobile logo system skill. Concept prompts stop at the mandatory user-selection gate; after the user chooses a direction, the same brief can continue into craft pass, context testing, and production packaging.
 
 All prompts work in both platforms:
 - Codex: prefix with `Use $mobile-logo-system.`
@@ -25,14 +25,16 @@ Do the following:
    silhouette logic, and why it survives at 29px and in monochrome.
 3. Score all 3 directions using the full evaluation matrix including
    geometric precision, color craft, context survival, and longevity.
-4. Recommend one winner. Run the craft pass on it: verify optical corrections,
+4. Recommend the strongest direction in one sentence and ask me to choose.
+   Do not run the craft pass until I confirm the direction.
+5. After I choose, run the craft pass: verify optical corrections,
    negative space, tangent continuity, and color accessibility (WCAG, CVD).
-5. Show the winner on an iOS home screen among 8 real competitor icons
+6. Show the chosen direction on an iOS home screen among 8 real competitor icons
    and in an App Store listing mockup.
-6. Propose the wordmark: justify type classification, pairing logic,
+7. Propose the wordmark: justify type classification, pairing logic,
    weight matching, and lockup construction.
-7. Define the Android adaptive icon split and monochrome layer.
-8. List 3 concrete improvement moves for the next refinement round.
+8. Define the Android adaptive icon split and monochrome layer.
+9. List 3 concrete improvement moves for the next refinement round.
 ```
 
 ## 2. Redesign a Generic Existing Icon
@@ -54,9 +56,10 @@ Do the following:
    and how it differentiates from the top 5 competitors in the category.
 4. Run a competitor row test: place each direction among 7 real fintech
    app icons. Evaluate which stands out without losing category belonging.
-5. Select the winner, run the full craft pass, and output the decision
-   matrix with all 11 scoring dimensions.
-6. Produce the monochrome variant and validate it under Android themed
+5. Recommend the strongest direction, output the decision matrix with all
+   11 scoring dimensions, and ask me to choose before refinement.
+6. After I choose, run the full craft pass.
+7. Produce the monochrome variant and validate it under Android themed
    icon tinting with warm, cool, and neutral palettes.
 ```
 
@@ -80,11 +83,12 @@ Requirements:
    harmony model. Test grayscale and CVD (protanopia, deuteranopia).
 4. The wordmark must use a contrast pairing with the symbol. Justify
    type classification, specify kerning adjustments for each letter pair.
-5. Run the style-agnostic silhouette test: show the winner as flat fill,
-   outline only, and cut-out. All three must be recognizable.
-6. Place the icon on both iOS and Android home screens. Test with circular
+5. Recommend the strongest direction and ask me to choose before refinement.
+6. After I choose, run the style-agnostic silhouette test: show the chosen
+   direction as flat fill, outline only, and cut-out. All three must be recognizable.
+7. Place the icon on both iOS and Android home screens. Test with circular
    and rounded-square masks on Android.
-7. Answer the 5-year durability question honestly.
+8. Answer the 5-year durability question honestly.
 ```
 
 ## 4. Premium Health and Wellness App
@@ -111,19 +115,20 @@ Workflow:
    metaphor, emotional job, primary risk, and longevity assessment.
 3. Score using the full matrix. Reject any direction that fails the
    style-agnostic silhouette test or would look dated in 3 years.
-4. Run the craft pass on the winner: geometric grid, optical corrections,
+4. Recommend the strongest direction and ask me to choose before refinement.
+5. After I choose, run the craft pass on the chosen direction: geometric grid, optical corrections,
    negative space audit (fill counterforms with color — are they deliberate?),
    tangent continuity (G1 minimum), path cleanliness.
-5. Define the color system: contrast ratios, CVD simulation, gradient-to-flat
+6. Define the color system: contrast ratios, CVD simulation, gradient-to-flat
    and gradient-to-monochrome fallbacks.
-6. Wordmark: choose a typeface that signals medical credibility without
+7. Wordmark: choose a typeface that signals medical credibility without
    clinical coldness. Justify the pairing. Construct horizontal and
    stacked lockups with measured proportions.
-7. Context test: iOS home screen (light + dark + photo wallpaper),
+8. Context test: iOS home screen (light + dark + photo wallpaper),
    App Store listing, Settings at 29pt, competitor row of 7 icons.
-8. Android adaptive icon: foreground/background split, safe-zone discipline,
+9. Android adaptive icon: foreground/background split, safe-zone discipline,
    monochrome layer with intentional simplification.
-9. Prepare the full handoff package.
+10. Prepare the full handoff package.
 ```
 
 ## 5. Children's Educational App
@@ -148,9 +153,10 @@ Steps:
    Where is the white space for differentiation?
 2. Define 3 territories. For each: metaphor, construction grid,
    color roles with accessibility rationale, reduction rule at 29px.
-3. Score and select. The winner must pass: small-size test, monochrome test,
+3. Score the directions, recommend the strongest one, and ask me to choose.
+   The recommended direction must pass: small-size test, monochrome test,
    CVD test, and the "would a parent trust this?" test.
-4. Run the craft pass. Pay special attention to corner radius progression
+4. After I choose, run the craft pass. Pay special attention to corner radius progression
    (children's apps often use generous radii — make this intentional, not random).
 5. Wordmark: choose a typeface that is friendly but not babyish.
    Parents should not feel embarrassed to have this on their phone.
@@ -244,11 +250,12 @@ Steps:
    - modernize without chasing the current trend
 4. Score using the full matrix. Add a specific "recognizability preservation"
    criterion: would an existing user find this icon after the update?
-5. Run the craft pass on the winner: grid construction, optical corrections,
+5. Recommend the strongest refinement and ask me to choose before craft work.
+6. After I choose, run the craft pass on the chosen refinement: grid construction, optical corrections,
    negative space, color accessibility, path cleanliness.
-6. Context test: show old and new icons side by side on a home screen.
+7. Context test: show old and new icons side by side on a home screen.
    The transition should feel like the same brand evolved, not a different app.
-7. Define the monochrome path. If the old icon never had one, explain
+8. Define the monochrome path. If the old icon never had one, explain
    what simplification was required.
-8. Prepare the handoff package with before/after comparison notes.
+9. Prepare the handoff package with before/after comparison notes.
 ```

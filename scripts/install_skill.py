@@ -167,6 +167,7 @@ When invoked:
    - `{repo_root_expr}/references/project-audit.md`
    - `{repo_root_expr}/references/live-research.md`
    - `{repo_root_expr}/references/sources.md`
+   - `{repo_root_expr}/references/creative-divergence.md`
    - `{repo_root_expr}/references/concept-quality.md`
    - `{repo_root_expr}/references/evaluation.md`
    - `{repo_root_expr}/references/package-spec.md`

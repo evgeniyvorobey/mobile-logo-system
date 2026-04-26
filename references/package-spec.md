@@ -38,6 +38,11 @@ The final package should include:
 6. Export checklist
 - see below
 
+7. Review evidence when SVG marks are available
+- reduction/contact sheet path
+- sizes reviewed
+- unresolved visual issues
+
 ## Export Checklist
 
 Before handoff, confirm:
@@ -48,6 +53,7 @@ Before handoff, confirm:
 - Android adaptive icon split defined
 - wordmark lockup reviewed
 - dark/light backgrounds checked
+- contact sheet generated or visual evidence linked
 - unresolved legal/trademark questions noted
 
 ## Suggested Folder Structure
@@ -61,6 +67,7 @@ project/
     selected/
     exports/
     reviews/
+      svg-contact-sheet.html
 ```
 
 For the final package:

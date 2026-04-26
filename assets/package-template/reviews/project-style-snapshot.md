@@ -18,6 +18,13 @@ Date: {{DATE}}
 - What feels strong already:
 - What feels weak or generic:
 
+## Category Cliches To Avoid
+
+- Cliche 1:
+- Cliche 2:
+- Cliche 3:
+- Intentional avoidance move:
+
 ## Visual System Signals
 
 - Dominant shapes:
@@ -41,6 +48,7 @@ Date: {{DATE}}
 - What the next logo/icon direction must solve:
 - What it must not break:
 - Where the current system gives useful geometry or tone cues:
+- Where creative stretch is allowed:
 
 ## Confidence
 

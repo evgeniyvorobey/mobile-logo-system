@@ -16,6 +16,7 @@ When invoked:
    - `${CLAUDE_SKILL_DIR}/../../../references/project-audit.md`
    - `${CLAUDE_SKILL_DIR}/../../../references/live-research.md`
    - `${CLAUDE_SKILL_DIR}/../../../references/sources.md`
+   - `${CLAUDE_SKILL_DIR}/../../../references/creative-divergence.md`
    - `${CLAUDE_SKILL_DIR}/../../../references/concept-quality.md`
    - `${CLAUDE_SKILL_DIR}/../../../references/evaluation.md`
    - `${CLAUDE_SKILL_DIR}/../../../references/package-spec.md`

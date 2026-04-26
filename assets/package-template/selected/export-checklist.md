@@ -14,6 +14,7 @@ Skill version: {{SKILL_VERSION}}
 - iOS icon reviewed:
 - Android adaptive split defined:
 - Reduction checks logged:
+- SVG contact sheet generated:
 - Dark/light checks logged:
 - Craft pass completed:
 - Context testing completed:
@@ -44,6 +45,7 @@ Skill version: {{SKILL_VERSION}}
 - Manual designer review still needed:
 - Craft risks (geometry, color, typography):
 - Context testing gaps:
+- Contact sheet / visual evidence gaps:
 - Longevity risks (trend-dependent elements):
 
 ## Release Verdict

@@ -9,6 +9,25 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **minor** — new reference files, prompts, or capabilities without breaking existing packages
 - **patch** — typos, wording fixes, link corrections, documentation alignment
 
+## [2.6.0] - 2026-04-26
+
+### Added
+
+- `references/creative-divergence.md` — a runtime checklist for broader concept range before narrowing.
+- Creative divergence hooks in `SKILL.md`, `workflow.md`, `concept-quality.md`, templates, and Codex/Claude metadata.
+- `scripts/render_svg_contact_sheet.py` — dependency-free HTML contact sheets for SVG reduction, surface, monochrome, and mask review.
+- `scripts/smoke_test_contact_sheet.py` and CI coverage for the contact sheet generator.
+- `scripts/smoke_test_contact_sheet_browser.py` — browser visual smoke test for contact sheet rendering and SVG visibility.
+- `scripts/smoke_test_package_scaffold.py` and CI coverage for handoff package scaffolding.
+- Worked examples in `creative-divergence.md` showing bad pseudo-variety, strong divergence, and rejection rules.
+- Validation checks that keep the prompt library aligned with the mandatory user-selection gate.
+
+### Changed
+
+- Prompt library examples now stop at the user-selection gate before craft pass, refinement, wordmark, or packaging work.
+- Project/package templates now capture category cliches, creative stretch, and creative range snapshots.
+- Contact sheets now include platform safe-zone overlays, Android adaptive icon frames, and foreground/background previews.
+
 ## [2.5.0] - 2026-04-08
 
 ### Changed

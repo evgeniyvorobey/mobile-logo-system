@@ -12,7 +12,8 @@ Expected behavior:
 - define 3-5 territories, each with stated construction method, color roles, silhouette logic
 - generate concepts built on a grid, not freehand
 - score using all 11 dimensions including geometric precision, color craft, context survival, longevity
-- run the craft pass: optical corrections, negative space audit, tangent continuity, color accessibility
+- recommend the strongest direction and wait for user selection before craft pass
+- after selection, run the craft pass: optical corrections, negative space audit, tangent continuity, color accessibility
 - context test: iOS home screen (light/dark), App Store listing, competitor row
 - define wordmark with justified pairing and measured lockups
 - define Android adaptive split and monochrome layer
@@ -43,7 +44,7 @@ Expected behavior:
 - generate 3-5 differentiated directions, each with construction method, color rationale, and longevity note
 - score distinctiveness, small-size resilience, context survival, and longevity
 - run competitor row test: place each direction among 5-7 real category icons
-- select winner and run craft pass
+- recommend strongest direction and ask the user to choose before craft pass
 - run style-agnostic silhouette test (flat, outline, cut-out)
 
 ## Example 4: Production Audit
@@ -72,7 +73,8 @@ Expected behavior:
 - render current icon as flat single-color fill to identify the equity core
 - propose 2-3 evolutionary refinements that preserve the recognizable silhouette
 - add a specific “recognizability preservation” criterion to the scoring matrix
-- run craft pass: rationalize freehand curves onto a grid, improve reduction, modernize without trend-chasing
+- recommend the strongest refinement and wait for user selection before craft pass
+- after selection, run craft pass: rationalize freehand curves onto a grid, improve reduction, modernize without trend-chasing
 - context test: show old and new icons side by side on a home screen
 - define monochrome path
 - prepare handoff package with before/after comparison

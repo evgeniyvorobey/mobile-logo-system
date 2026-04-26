@@ -2,7 +2,7 @@ interface:
   display_name: "Mobile Logo System"
   short_description: "Mobile logo, wordmark, and icon package workflow"
   brand_color: "#C67A52"
-  default_prompt: "Use $mobile-logo-system to inspect the current project first, verify current platform and logo/icon guidance, generate strong mobile logo directions with geometric construction and color rationale, score them using the full evaluation matrix, run the craft pass (geometry, color, typography, premium, context), and refine the best-fit option into a production-ready package."
+  default_prompt: "Use $mobile-logo-system to inspect the current project first, verify current platform and logo/icon guidance, run creative divergence when more variety is needed, generate strong mobile logo directions with geometric construction and color rationale, score them using the evaluation matrix, ask me to choose a direction, then run the craft pass and refine the chosen option into a production-ready package."
 
 policy:
   allow_implicit_invocation: true
